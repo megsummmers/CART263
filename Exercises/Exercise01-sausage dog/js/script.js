@@ -99,6 +99,7 @@ function gameplay(){
     for(let i = 0; i < animals.length; i++){
       animals[i].end = true;
     }
+    finalTime = counter;
     push();
     noStroke();
     rectMode(CENTER);
@@ -109,7 +110,7 @@ function gameplay(){
     textSize(100);
     text("Congratulations!", width/2, height/2 - 25);
     textSize(70);
-    text("You finished with " + counter + " seconds left!", width/2, height/2 + 75);
+    text("You finished with " + finalTime + " seconds left!", width/2, height/2 + 75);
     pop();
   }
   //ending screen if user runs out of time
@@ -153,7 +154,7 @@ function mousePressed(){
       mouseY < (height/2 + 50) + 250 /2){
       state = "gameplay";
       setInterval(function(){
-        if(counter>0){
+        if(counter > 0 && !sausageDog.found){
           counter = round( counter - 0.1, 1);
         }
       }, 100);
