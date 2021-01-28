@@ -3,10 +3,9 @@ Template p5 project
 Pippin Barr
 
 Find the sausage dog in 15 seconds to win
-the group of animals will move around to distract the player
-and will disapear once the sausage dog is clicked.
+the rest of the animals will move around to distract the player.
 
-To be added:
+Additional features from base game:
 *start and ending screen
 *Lower alpha once sausage dog is found
 *add countdown + end timer
@@ -67,18 +66,6 @@ function setup() {
   let speed = random(0.5, 3);
   let distance = random(50, 300);
   sausageDog = new SausageDog(x, y, speed, distance, sausageDogImage, bark);
-
-  //timer
-  for(let i=0; i<150; i++){
-    setTimeout(function(){
-      counter = round( counter - 0.1, 1);
-    }, 100+i*100);
-  }
-  // setInterval(function(){
-  //   if(counter>0){
-  //     counter = round( counter - 0.1, 1);
-  //   }
-  // }, 100);
 }
 
 //Directs user to gameplay or title screen
@@ -134,7 +121,7 @@ function gameplay(){
     noStroke();
     rectMode(CENTER);
     fill(255, 255, 230, 200);
-    rect(width/2, height/2, 1000, 300);
+    rect(width/2, height/2, width/3 + width/3, 300);
     fill(50, 50, 0);
     textAlign(CENTER);
     textSize(100);
@@ -146,6 +133,10 @@ function gameplay(){
   //displays time left
   if (counter >= 0 && !sausageDog.found){
     push();
+    noStroke();
+    fill(255, 255, 230, 200);
+    rectMode(CENTER);
+    rect(width - 75, 50, 150, 100);
     fill(50, 50, 0);
     textSize(50);
     text(counter, width - 120, 60);
@@ -161,6 +152,11 @@ function mousePressed(){
       mouseY > (height/2 + 50) - 250 /2 &&
       mouseY < (height/2 + 50) + 250 /2){
       state = "gameplay";
+      setInterval(function(){
+        if(counter>0){
+          counter = round( counter - 0.1, 1);
+        }
+      }, 100);
     }
   } else if (state === "gameplay"){
     sausageDog.mousePressed();
