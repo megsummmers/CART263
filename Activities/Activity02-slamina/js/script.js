@@ -13,7 +13,9 @@ Things to add:
 - timer (how many guesses in 1 min)
   *circle shrinking or some sort of visual aspect for timer
 - correct guess counter (to give them a score)
+- new gameplay screen with skip and repeat word button
 - new start and end screen w/score
+if there's time:
 - add sound effect to right and wrong answers
 - add snarky remarks from voice
 **************************************************/
@@ -157,6 +159,7 @@ const animals = [
     ];
 let currentAnimal = "";
 let currentAnswer = "";
+let answerIn = false;
 
 // controls annyang and displays text
 function setup() {
@@ -164,47 +167,57 @@ function setup() {
 
   if (annyang) {
     let commands = {
-      'I think it is *guess': guessAnimal
+      'Is it *guess': guessAnimal
     };
     //starts annyang
     annyang.addCommands(commands);
     annyang.start();
-
-    //push();
-    textSize(32);
-    textStyle(BOLD);
-    textAlign(CENTER, CENTER);
-    fill(255);
-    //pop();
+    //callbacks to control background colour
+    annyang.addCallback('result', function() {
+      answerIn = true;
+    });
   } else {
     alert('This game requires speech recognition.');
   }
+  //text defaults
+  textSize(32);
+  textStyle(BOLD);
+  textAlign(CENTER, CENTER);
 }
 
 // Displays if answer is right or wrong
 function draw() {
-  background(0);
+  background(190, 200, 225);
 
-  if (currentAnswer === currentAnimal) {
-    background(135, 220, 135);
-    fill(255);
-  } else {
-    background(210, 85, 85);
-    fill(255);
-  }
+  displayAnswer();
 }
 
 //voice reads a new animal everytime the user clicks their mouse
 function mousePressed(){
   currentAnimal = random(animals);
   let reverseAnimal = reverseString(currentAnimal);
+  annyang.abort();
   responsiveVoice.speak(reverseAnimal);
+  setTimeout(annyang.resume(), 10000);
+}
+
+function displayAnswer(){
+  if (currentAnswer === currentAnimal && answerIn) {
+    background(135, 220, 135);
+    fill(255);
+    setTimeout(function(){
+      answerIn = false;
+    }, 1500);
+  } else if (answerIn) {
+    background(210, 85, 85);
+    fill(255);
+  }
+  text(currentAnswer, width/2, height/2);
 }
 
 //inserts user guess in currentAnswer in lower case
 function guessAnimal(guess){
   currentAnswer = guess.toLowerCase();
-  console.log(currentAnswer);
 }
 
 //reverses a string
