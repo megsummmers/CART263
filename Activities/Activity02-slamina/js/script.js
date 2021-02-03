@@ -1,8 +1,13 @@
 /**************************************************
 Template p5 project
 Pippin Barr
+Meg Summers
 
-Here is a description of this template p5 project.
+Create the game slamina with responsiveVoice and annyang
+Program will speak the name of animal backwards then
+the user must guess the animal by saying the name forwards
+Displays the animal they said green if the animal is right,
+red if it's wrong.
 **************************************************/
 "use strict";
 
@@ -23,30 +28,18 @@ function draw() {
 function mousePressed(){
   background(255);
   if (annyang) {
+    //example
     let commands = {
       'ozzy ozzy ozzy': function(){
+        //responsize voice example
         responsiveVoice.speak("Oi! Oi! Oi!");
-      },
-      'hello': function(){
-        responsiveVoice.speak("Hello there! :D");
-      },
-      'how are you': function(){
-        responsiveVoice.speak("I'm good, how are you?");
-      },
-      "I'm good": function(){
-        responsiveVoice.speak("That's great! :)");
-      },
-      "I'm bad": function(){
-        responsiveVoice.speak("Oh no! Feel better soon");
-      },
-      "goodbye": function(){
-        responsiveVoice.speak("Bye! Come back soon");
       }
     };
+    //starts annyang
     annyang.addCommands(commands);
     annyang.start();
   } else {
-    alert('This page requires speech recognition.');
+    alert('This game requires speech recognition.');
   }
   //responsiveVoice.speak("hello hello", "French Female");
 }
