@@ -9,13 +9,11 @@ the user must guess the animal by saying the name forwards
 Displays the animal they said green if the animal is right,
 red if it's wrong.
 
-Things to add:
-* timer (how many guesses in 1 min)
-  - circle shrinking or some sort of visual aspect for timer
-* correct guess counter (to give them a score)
-* new gameplay screen with skip and repeat word button
-* new start and end screen w/score
-if there's time:
+Added features:
+- timer (how many guesses in 1 min)
+- correct guess counter (to give them a score)
+- new gameplay screen with skip and repeat word button
+- new start and end screen w/score
 - add sound effect to right and wrong answers
 **************************************************/
 "use strict";
