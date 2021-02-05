@@ -162,7 +162,7 @@ let winSound;
 let soundPlayed = false;
 let state = 'title';
 let repeatButton = {
-  x: 500, y: 750,
+  x: 500, y: 700,
   w1: 300, w2: 225,
 };
 let bg = {
@@ -171,7 +171,7 @@ let bg = {
 
 // controls annyang and displays text
 function setup() {
-  createCanvas(1000, 1050);
+  createCanvas(1000, 1000);
 
   if (annyang) {
     let commands = {
