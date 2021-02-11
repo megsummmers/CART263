@@ -6,6 +6,8 @@ Here is a description of this template p5 project.
 **************************************************/
 "use strict";
 
+let travelData;
+
 // setup()
 //
 // Description of setup() goes here.
@@ -17,7 +19,7 @@ function setup() {
 //
 // Description of draw() goes here.
 function draw() {
-  background(0);
+  background(255);
 }
 
 function mousePressed(){
