@@ -105,7 +105,7 @@ function loginScreen(){
   text("Welcome to the\nSecret Organization", width/2, height/5);
   fill(0);
   textAlign(CENTER);
-  textSize(40);
+  textSize(32);
   textFont("courier");
   text("Please say your access name to continue\nSay 'My name is agent [name]'", width/2, height/2);
   pop();
@@ -146,7 +146,7 @@ ${spyProfile.capital}, ${spyProfile.country}`;
   textSize(80);
   fill(255);
   text("Welcome Agent " + spyProfile.name, width/2, height/4);
-  textSize(30);
+  textSize(25);
   text("SPY PROFILE", width/2, height/3 +35);
   text(profileCommands, width/2, height/4 + height/2);
   textAlign(LEFT);
