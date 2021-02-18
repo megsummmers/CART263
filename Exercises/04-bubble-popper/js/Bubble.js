@@ -6,6 +6,7 @@ class Bubble {
     this.vx = 0;
     this.vy = vy;
     this.type = type;
+    this.types = ["good", "bad"];
     //bomb image
     this.bomb = bomb
   }
@@ -16,11 +17,7 @@ class Bubble {
     this.x = random(width);
     this.y = height + this.size/2;
     //change type
-    if(this.type === "good"){
-      this.type = "bad";
-    } else if (this.type === "bad"){
-      this.type = "good";
-    }
+    this.type = random(this.types);
   }
 
   //moves bubble based on velocity

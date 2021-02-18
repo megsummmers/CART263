@@ -26,13 +26,17 @@ If there's time:
 let state = 'loading';
 //webcam var
 let video;
+let videoRatioX;
+let videoRatioY;
 //pop counter
 let counter = 0;
 let imgBomb;
 let popSound;
 let bombSound;
 // The name of our model
-let modelName = `Handpose`;
+let buttonText = "Loading...";
+let camSwitchText = "Webcam";
+let webcam = true;
 // current set of predictions
 let predictions = [];
 //the bubbles
@@ -64,6 +68,8 @@ function preload(){
 // setup()
 function setup() {
   createCanvas(960, 720);
+  videoRatioX = width/640;
+  videoRatioY = height/480
 
   video = createCapture(VIDEO);
   video.hide();
@@ -72,16 +78,17 @@ function setup() {
   handpose = ml5.handpose(video, {
     flipHorizontal: true
   }, function() {
-    state = 'gameplay';
+    buttonText = "Start";
+    //state = 'gameplay';
   });
   //listen for predictions
   handpose.on('predict', function(results){
     predictions = results;
   });
   //bubbles initialize
-  bubbleSettings.bubbles.push(new Bubble(random(width), height, random(50, 150), random(-3, -7), random(bubbleSettings.types), imgBomb));
-  bubbleSettings.bubbles.push(new Bubble(random(width), height, random(50, 150), random(-3, -7), random(bubbleSettings.types), imgBomb));
-  bubbleSettings.bubbles.push(new Bubble(random(width), height, random(50, 150), random(-3, -7), random(bubbleSettings.types), imgBomb));
+  for (let i = 0; i < 5; i++){
+    bubbleSettings.bubbles.push(new Bubble(random(width), height, random(50, 200), random(-4, -8), random(bubbleSettings.types), imgBomb));
+  }
 }
 
 // draw()
@@ -96,13 +103,48 @@ function draw() {
 function loadScreen(){
   background(162, 210, 245);
   push();
-  stroke(0);
-  textSize(25);
+  stroke(255);
+  fill(255, 255, 255, 150);
+  rectMode(CENTER);
+  rect(width/2, 600, 250, 75);
+  rect(width/2, 425, 300, 75);
+  noStroke();
+  fill(0);
   textAlign(CENTER);
-  text(`Loading ${modelName}...`, width/2, height/2);
-  textSize(22);
-  text("Once program starts use your index finger to pop the bubbles", width/2, height/2 + 35);
+  textSize(75);
+  text("Welcome to Bubble Pop!", width/2, 150);
+  textSize(40);
+  text("Use your index finger to pop the bubbles", width/2, 250);
+  text("Click the start button to begin", width/2, 550);
+  text(buttonText, width/2, 615);
+  text(camSwitchText, width/2, 435);
+  textSize(30);
+  text("Click this to switch between using your webcam\nas a background or leaving it black.", width/2, 325);
   pop();
+}
+
+function mousePressed(){
+  if(state === "loading"){
+    if (mouseX > width/2 - 250 /2 &&
+      mouseX < width/2 + 250 /2 &&
+      mouseY > 600 - 75 /2 &&
+      mouseY < 600 + 75 /2 &&
+      buttonText === "Start"){
+      state = "gameplay";
+    }
+    if (mouseX > width/2 - 300 /2 &&
+      mouseX < width/2 + 300 /2 &&
+      mouseY > 425 - 75 /2 &&
+      mouseY < 425 + 75 /2){
+      if (webcam){
+        camSwitchText = "No Webcam";
+        webcam = false;
+      } else if (!webcam){
+        camSwitchText = "Webcam";
+        webcam = true;
+      }
+    }
+  }
 }
 
 function gameplay(){
@@ -110,8 +152,10 @@ function gameplay(){
   background(0);
 
   //video feed version
-  const flippedVideo = ml5.flipImage(video);
-  image(flippedVideo, 0, 0, width, height);
+  if (webcam){
+    const flippedVideo = ml5.flipImage(video);
+    image(flippedVideo, 0, 0, width, height);
+  }
 
   //finds coords of index finger if hand is visible
   if (predictions.length > 0){
@@ -149,18 +193,18 @@ function gameplay(){
   //displays pop counter
   push();
   fill(255);
-  textSize(25);
+  textSize(40);
   textAlign(CENTER);
-  text(counter, width-30, 30);
+  text(counter, width-50, 50);
   pop();
 }
 
 //updates pin location
 function updatePin(prediction){
-  pin.tip.x = prediction.annotations.indexFinger[3][0];
-  pin.tip.y = prediction.annotations.indexFinger[3][1];
-  pin.head.x = prediction.annotations.indexFinger[0][0];
-  pin.head.y = prediction.annotations.indexFinger[0][1];
+  pin.tip.x = prediction.annotations.indexFinger[3][0] * videoRatioX;
+  pin.tip.y = prediction.annotations.indexFinger[3][1] * videoRatioY;
+  pin.head.x = prediction.annotations.indexFinger[0][0] * videoRatioX;
+  pin.head.y = prediction.annotations.indexFinger[0][1] * videoRatioY;
 }
 
 //displays pin
