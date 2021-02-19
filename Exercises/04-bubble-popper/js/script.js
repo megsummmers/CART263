@@ -7,18 +7,14 @@ In this program the user will use their webcam to track
 their finger as they try to pop the bubbles floating
 around by tracking their hand with ml5.js Handpose
 
-Things to add:
-* counter
-* add popping sound effect
-* add more bubbles to the screen
-  > allow bubbles to randomly move side to side
-* add different types of bubbles
-  * bad bubbles they can't pop
-  > bubbles with animals they need to save (new tool?)
-If there's time:
-- multiple tools, cahnge by going to a fist
-  > pop red/bad bubbles and grow blue/good bubbles
-- save fallen animals with a flat hand
+New Additions:
+- Counter for how many bubbles the user popped
+- Red/Bomb bubbles user needs to avoid
+- More bubbles with randomized speed, size, type, etc.
+- Incresing bubble speed as the user's score goes up
+- Sounds effects for popping both bubble types
+  > normal pop for blue, exploding sound for red
+- New loading screen with ability to turn webcam off and on
 **************************************************/
 "use strict";
 
@@ -87,7 +83,7 @@ function setup() {
   });
   //bubbles initialize
   for (let i = 0; i < 5; i++){
-    bubbleSettings.bubbles.push(new Bubble(random(width), height, random(50, 200), random(-4, -8), random(bubbleSettings.types), imgBomb));
+    bubbleSettings.bubbles.push(new Bubble(random(width), height, random(-4, -8), random(50, 200), random(bubbleSettings.types), imgBomb));
   }
 }
 
@@ -188,6 +184,22 @@ function gameplay(){
     if (bubble.y < 0 - bubble.size/2) {
       bubble.reset();
     }
+    //increases speed to scale with pop counter
+    //resets with counter as well
+    if (counter <= 0){
+      bubble.vy = bubble.vyMin;
+    } else if (counter === 10){
+      bubble.vy = bubble.vyMin - 1;
+    } else if (counter === 15){
+      bubble.vy = bubble.vyMin - 2;
+    } else if (counter === 20){
+      bubble.vy = bubble.vyMin - 3;
+    } else if (counter === 25){
+      bubble.vy = bubble.vyMin - 4;
+    } else if (counter === 30){
+      bubble.vy = bubble.vyMin - 5;
+    }
+    //display bubble
     bubble.display();
   }
   //displays pop counter

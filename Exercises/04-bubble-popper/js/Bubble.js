@@ -1,10 +1,11 @@
 class Bubble {
-  constructor(x, y, size, vy, type, bomb){
+  constructor(x, y, vy, size, type, bomb){
     this.x = x;
     this.y = y;
     this.size = size;
     this.vx = 0;
     this.vy = vy;
+    this.vyMin = vy;
     this.type = type;
     this.types = ["good", "bad"];
     //bomb image
