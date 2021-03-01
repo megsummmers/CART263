@@ -16,7 +16,7 @@ Technologies to be used
 **************************************************/
 "use strict";
 
-let state = 'base';
+let state = 'login';
 let dataKey;
 let userNum = 0;
 //input boxes variables
@@ -164,10 +164,6 @@ function setup() {
   // images.finalSet.push(imgPChest);
   // images.finalSet.push(imgBlank);
 }
-
-// function windowResized(){
-//   resizeCanvas(960, 720);
-// }
 
 //preload images
 function preload(){
