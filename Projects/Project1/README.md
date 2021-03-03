@@ -1,3 +1,2 @@
-# Template p5 project
-
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+# Spider man Suit creator
+A character generator type game based on the spiderman into the spiderverse movie and it's concept of multiple different spiderman versions
