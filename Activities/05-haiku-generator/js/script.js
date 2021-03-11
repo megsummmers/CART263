@@ -1,20 +1,23 @@
 /**************************************************
-Template p5 project
-Pippin Barr
+Meg Summers
 
-Here is a description of this template p5 project.
+Generates a Haiku
 **************************************************/
+"use strict";
 
-// setup()
-//
-// Description of setup() goes here.
-function setup() {
+//variables
+let fiveSyllableLines = [
+  "Tonight we shall drink",
+  "At dawn we shall ride",
+  "You have done your best",
+  "We are all forests",
+  "They are all gone now"
+];
 
-}
-
-// draw()
-//
-// Description of draw() goes here.
-function draw() {
-
-}
+let sevenSyllableLines = [
+  "Tomorrow we rise to fight",
+  "No one shall be left behind",
+  "The moon will rise at midnight",
+  "Say the things left unsaid",
+  "The autumn stretches its legs"
+];
