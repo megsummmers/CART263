@@ -19,13 +19,13 @@ body {
 /* story section settings */
 #story {
   padding-top: 5vh;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /* title + instructions text settings */
 .title {
   padding-top: 3vh;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 .instructions {
