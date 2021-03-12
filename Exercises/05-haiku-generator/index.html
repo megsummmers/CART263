@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+    <title>Story Idea Generator</title>
+
+    <!-- CSS stylesheet(s) -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  </head>
+
+  <body>
+    <!-- HTML -->
+    <div class="box">
+      <!-- Title and instructions text + reveal/change button-->
+      <p class="title" id="title">Create your own Story</p>
+      <p class="instructions"><span id="instructions"></span><span id="customize"style="color: #66b3e3"></span></p>
+      <button class="button" id="button" onclick="changeStory()">Reveal your story</button>
+      <!-- Story sections -->
+      <section id='story'>
+        <p id='line1' style='opacity: 0'><span id='opening'></span> in a <span id='setting'></span></p>
+        <p id='line2' style='opacity: 0'><span id='character'></span> and <span id='sidekick'></span></p>
+        <p id='line3' style='opacity: 0'>Venture to <span id='quest'></span></p>
+        <p id='line4' style='opacity: 0'>When suddenly they notice <span id='problem'></span></p>
+        <p id='line5' style='opacity: 0'>Will they make it out alive?</p>
+        <p id='line6' style='opacity: 0'><span id='ending'></span></p>
+      </section>
+    </div>
+    <!-- My script(s) -->
+    <script src="js/script.js"></script>
+  </body>
+
+</html>

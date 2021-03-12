@@ -1,0 +1,64 @@
+/*********************************************
+
+Here is a description of any special CSS used.
+By default that's nothing.
+
+**********************************************/
+/* background + font setup */
+body {
+  background-image: url("images/default.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* story section settings */
+#story {
+  padding-top: 5vh;
+  font-size: 2rem;
+}
+
+/* title + instructions text settings */
+.title {
+  padding-top: 3vh;
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+.instructions {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* reveal/change button */
+.button {
+  width: 20vw;
+  height: 5vh;
+  font-size: 1.7rem;
+  background-color: #FFFFFF;
+  border-style: none;
+}
+.button:hover {
+  background-color: #9fcfed;
+  border-style: solid;
+  border-color: #FFFFFF;
+  border-width: thick;
+}
+
+/* background box for text */
+.box {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-style: solid;
+  border-color: #FFFFFF;
+  border-width: thick;
+  height: 80vh;
+  margin: 10vh;
+}
+
+/* hove effect for editable text */
+span:hover {
+  color: #66b3e3;
+}
