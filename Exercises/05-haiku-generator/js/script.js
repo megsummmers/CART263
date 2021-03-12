@@ -11,46 +11,65 @@ chnages background image to match the story
 let opening = [
   "On a cold winter's night",
   "On a sunny afternoon",
-  "Once upon a time"
+  "Once upon a time",
+  "On a cozy autumn afternoon",
+  "On a rainy day"
 ];
 
 let setting = [
   "kingdom far, far away",
   "dark yet serene forest",
-  "bustling central city"
+  "bustling central city",
+  "field full of flowers",
+  "scorching desert"
 ];
 
 let character = [
   "A glorious knight",
   "A tired student",
-  "A rugged adventurer"
+  "A rugged adventurer",
+  "A hopeless romantic",
+  "A stressed proffesor",
+  "An experienced wizard"
 ];
 
 let sidekick = [
   "an energetic friend",
   "a fun bard",
-  "a nervous mage"
+  "a nervous mage",
+  "an eager student",
+  "an attractive friend",
+  "a rookie knight",
+  "a powerful mage",
 ];
 
 let quest = [
   "to buy a lusturous coffee",
   "to kill the montrous beast",
-  "to explore the hidden forest"
+  "to explore the hidden forest",
+  "to claim the undiscovered truth",
+  "to claim the new land",
+  "to get out of their comfort zone"
 ];
 
 let problem = [
   "a long line lies ahead",
   "a group of monsters blocking their path",
-  "that it was hidden from sight",
-  "that it was heavily guarded"
+  "that it was not there",
+  "that it was heavily guarded",
+  "a large crowd of chatty people",
+  "an evil mage blocks their path",
+  "a dragon appeared",
+  "their ex standing in front of them"
 ];
 
 let ending = [
   "No, they ran away out of fear",
   "No, they got bored",
   "No, they died.",
-  "Yes, but they tripped and lost their prize",
-  "Yes, they returned to home safely"
+  "Yes, but they tripped and lost everything they had",
+  "Yes, they returned to home safely",
+  "Yes, but they left having accomplished nothing"
 ];
 
 //variables
@@ -132,6 +151,10 @@ function changeBackground(element){
     document.body.style.backgroundImage = 'url("css/images/city.jpg")';
   } else if (element.innerText === "dark yet serene forest"){
     document.body.style.backgroundImage = 'url("css/images/forest.jpg")';
+  } else if (element.innerText === "scorching desert"){
+    document.body.style.backgroundImage = 'url("css/images/desert.jpg")';
+  } else if (element.innerText === "field full of flowers"){
+    document.body.style.backgroundImage = 'url("css/images/field.png")';
   }
 }
 
