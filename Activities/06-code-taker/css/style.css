@@ -4,3 +4,16 @@ Here is a description of any special CSS used.
 By default that's nothing.
 
 **********************************************/
+
+#poem {
+  text-align: center;
+}
+
+#answer {
+  height: 2rem;
+  border: 1px dashed black;
+}
+
+.found {
+  color: #3483eb;
+}
