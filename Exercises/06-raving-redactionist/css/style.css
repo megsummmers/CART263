@@ -1,0 +1,30 @@
+/*********************************************
+
+Here is a description of any special CSS used.
+By default that's nothing.
+
+**********************************************/
+
+.gameplay {
+  display: none;
+}
+
+#secret-document {
+  font-family: monospace;
+  font-size: 1.5rem;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  text-align: left;
+}
+
+.redacted {
+  background-color: #000000;
+  user-select: none;
+}
+
+.revealed {
+  background-color: rgba(255, 255, 255, 0);
+  user-select: text;
+  color: #5697e3;
+  text-decoration: underline;
+}
