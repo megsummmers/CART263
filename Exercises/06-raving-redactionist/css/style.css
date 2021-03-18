@@ -86,12 +86,21 @@ body {
   background-color: #f24444;
 }
 
-.image {
+.imageMenu {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 14vh;
   margin-bottom: 11vh;
+  width: 85%;
+}
+
+.imageEnd {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+  margin-bottom: 6vh;
   width: 85%;
 }
 

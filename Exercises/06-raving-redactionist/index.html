@@ -17,7 +17,7 @@
     <!-- HTML would go here if needed. -->
     <div class="menu" id="menu">
       <section id="secret-document">
-        <img src="assets/images/top-secret.png" alt="Top secret image" class="image">
+        <img src="assets/images/top-secret.png" alt="Top secret image" class="imageMenu">
         <h2>How To Play:</h2>
         <p style="text-align: center">Keep the black redacted parts of the text redacted by clicking them when they turn red. Keep the hacker from revealing the entire paper for 2 minutes to win.</p>
         <p style="text-align: center">Each difficulty adds another paragraph to keep track of</p>
@@ -30,28 +30,28 @@
       <section id="secret-document">
         <h2 id="title">Top Secret File</h2>
         <p class="text" id="easy">
-          Lorem ipsum dolor <span class="secret redacted">sit amet</span>, consectetur adipiscing elit. Aliquam lacus mi, ornare in porttitor et, varius nec justo. 
+          Lorem ipsum dolor <span class="secret easy redacted">sit amet</span>, consectetur adipiscing elit. Aliquam lacus mi, ornare in porttitor et, varius nec justo.
           In ut gravida mi. Sed sodales feugiat sem, non aliquam nisi maximus congue. Nunc aliquet, neque at ornare aliquam, diam quam ultricies eros, sed tincidunt
-          sapien mauris eu eros. Pellentesque sodales nunc mauris, ut condimentum erat porttitor <span class="secret redacted">vitae</span>. Donec ac pharetra ipsum.
+          sapien mauris eu eros. Pellentesque sodales nunc mauris, ut condimentum erat porttitor <span class="secret easy redacted">vitae</span>. Donec ac pharetra ipsum.
           Nulla ullamcorper dictum justo quis aliquet. Vestibulum diam ipsum, blandit ac cursus non, condimentum ut massa. Pellentesque sapien diam, vehicula sit
-          amet rhoncus eget, hendrerit sit amet odio. <span class="secret redacted">Mauris</span> non purus non ligula feugiat euismod non vitae justo.
+          amet rhoncus eget, hendrerit sit amet odio. <span class="secret easy redacted">Mauris</span> non purus non ligula feugiat euismod non vitae justo.
           Duis elementum ultricies ante lacinia sollicitudin. Morbi non sapien eu est elementum dapibus. Cras tempor ex at ullamcorper pellentesque.
-          <span class="secret redacted">Integer a</span> tempor sem.
+          <span class="secret easy redacted">Integer a</span> tempor sem.
         </p>
         <p class="text" id="medium">
-          Fusce auctor ex dolor, id placerat turpis dignissim vel. <span class="secret redacted">Suspendisse potenti</span>. Sed consequat tellus diam, sit amet
+          Fusce auctor ex dolor, id placerat turpis dignissim vel. <span class="secret medium redacted">Suspendisse potenti</span>. Sed consequat tellus diam, sit amet
           sodales ante bibendum sed. Proin at velit id urna malesuada laoreet rhoncus id mi. Nullam fringilla sem ligula, id tempor lectus scelerisque eget.
-          Praesent tempus nec justo ut vehicula. <span class="secret redacted">Etiam</span> efficitur dui elit, sed aliquet ante dictum eget. Vestibulum ut
-          suscipit odio. <span class="secret redacted">Pellentesque sapien</span> diam, vehicula sit amet rhoncus eget, hendrerit sit amet odio. Sed ante libero, feugiat nec lorem ac, euismod
-          dignissim mi. Sed lacinia dictum faucibus. Mauris interdum ut dui a <span class="secret redacted">malesuada rhoncus</span>. Nunc aliquet, neque at
+          Praesent tempus nec justo ut vehicula. <span class="secret medium redacted">Etiam</span> efficitur dui elit, sed aliquet ante dictum eget. Vestibulum ut
+          suscipit odio. <span class="secret medium redacted">Pellentesque sapien</span> diam, vehicula sit amet rhoncus eget, hendrerit sit amet odio. Sed ante libero, feugiat nec lorem ac, euismod
+          dignissim mi. Sed lacinia dictum faucibus. Mauris interdum ut dui a <span class="secret medium redacted">malesuada rhoncus</span>. Nunc aliquet, neque at
           ornare aliquam, diam quam ultricies eros, sed tincidunt sapien mauris eu eros.
         </p>
         <p class="text" id="hard">
-          Phasellus vel lacus sed lectus molestie feugiat at vel leo. <span class="secret redacted">Orci varius</span> natoque penatibus et magnis dis parturient
-          montes, nascetur ridiculus mus. Cras euismod risus at ipsum hendrerit, a <span class="secret redacted">rutrum massa</span> hendrerit. Sed lorem augue,
-          congue ac dictum ac, placerat eget <span class="secret redacted">nulla</span>. Nullam ut laoreet mi, id suscipit nisl. Sed blandit pellentesque pulvinar.
+          Phasellus vel lacus sed lectus molestie feugiat at vel leo. <span class="secret hard redacted">Orci varius</span> natoque penatibus et magnis dis parturient
+          montes, nascetur ridiculus mus. Cras euismod risus at ipsum hendrerit, a <span class="secret hard redacted">rutrum massa</span> hendrerit. Sed lorem augue,
+          congue ac dictum ac, placerat eget <span class="secret hard redacted">nulla</span>. Nullam ut laoreet mi, id suscipit nisl. Sed blandit pellentesque pulvinar.
           Proin tempor augue turpis, ac eleifend lectus aliquet tincidunt. Vestibulum ut suscipit odio. Sed ante libero, feugiat nec lorem ac, euismod dignissim mi.
-          Sed lacinia dictum faucibus. Mauris interdum ut dui a <span class="secret redacted">porta</span>. Vestibulum iaculis porttitor nisi sit amet porta.
+          Sed lacinia dictum faucibus. Mauris interdum ut dui a <span class="secret hard redacted">porta</span>. Vestibulum iaculis porttitor nisi sit amet porta.
           Maecenas elementum pharetra iaculis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis in magna eu elit
           sollicitudin ultricies et quis turpis. Curabitur tincidunt justo nunc, quis molestie velit aliquet in.
         </p>
@@ -60,16 +60,18 @@
     </div>
     <div class="ending" id="win">
       <section id="secret-document">
+        <img src="assets/images/accomplished.jpeg" alt="Mission accomplish image" class="imageEnd">
         <h2 id="title">Congratulations, You saved the world</h2>
-        <p class="text">
+        <p class="text" style="text-align: center; font-size: 1.3rem">
           You beat the hacker and kept most of the secrets safe! We live to fight another day thanks to you.
         </p>
       </section>
     </div>
     <div class="ending" id="lose">
       <section id="secret-document">
+        <img src="assets/images/fail.png" alt="Mission Failed image" class="imageEnd">
         <h2 id="title">You failed, the hacker got all the secrets</h2>
-        <p class="text">
+        <p class="text" style="text-align: center; font-size: 1.3rem">
           Now that the hacker has our secrets we are doomed... thanks a lot
         </p>
       </section>

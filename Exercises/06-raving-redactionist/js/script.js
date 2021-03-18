@@ -9,38 +9,37 @@ for a few minutes on one of 3 difficulties (num of paragraphs)
 
 Things to add:
 - 3 difficulties (done)
-- Timer for ending
-- Title screen + ending screen
-- *Add animation to text
+- Timer for ending (done)
+- Title screen + ending screen (done)
 - update look of website (done)
 ****************************************************************/
 
 "use strict";
 
 let $secrets;
+let $redacted;
 let difficulty = "none";
 let timerMax = 30;
 let timerMin = 0;
 let timePassed = timerMax;
-let numofRedacted = 4;
-//constant
-
-//setup();
+//constants
+const reveal_frequency = 400;
+const reveal_probability = 0.1;
 
 function setup() {
-  //saves all secrets to var and adds click listener
+  //saves all secrets and redacted parts to var and adds click listener
   $secrets = $(`.secret`);
   $secrets.on(`click`, redact);
   //reveals secrets every 500 milliseconds
   if(difficulty != "none"){
-    setInterval(revelation, 500);
+    setInterval(revelation, reveal_frequency);
     setInterval(function(){
       //get timer and redacted elements
       let timerDisplay = document.getElementById('timer');
-      let $redacted = $(`.redacted`);
-      console.log($(`.redacted`).length);
+      $redacted = $(`.redacted`);
       //removes one from timer every second
       timePassed -= 1;
+      console.log($redacted.length);
       if ($redacted.length === 0){
         //end countdown
         clearInterval();
@@ -48,9 +47,9 @@ function setup() {
         ending('lose');
       } else if (timePassed >= 10){ //displays the current text
         timerDisplay.innerText = `0:${timePassed}`;
-      } else if (timePassed >= 0 && timePassed <= 9){
+      } else if (timePassed >= timerMin && timePassed <= 9){
         timerDisplay.innerText = `0:0${timePassed}`;
-      } else if (timePassed <= 0){
+      } else if (timePassed <= timerMin){
         //end countdown
         clearInterval();
         //go to end screen
@@ -66,7 +65,7 @@ function revelation(){
 
 function attemptReveal(){
   let r = Math.random();
-  if (r < 0.1) {
+  if (r < reveal_probability) {
     $(this).removeClass(`redacted`);
     $(this).addClass(`revealed`);
   }
@@ -91,12 +90,22 @@ function difficultySelect(choice){
   if (difficulty === "easy"){
     medium.style.display = "none";
     hard.style.display = "none";
-    numofRedacted = 4;
+    //set all non-used redacts to revealed
+    $(`.medium`).each(function(medium){
+      $(this).removeClass(`redacted`);
+      $(this).addClass(`revealed`);
+    });
+    $(`.hard`).each(function(hard){
+      $(this).removeClass(`redacted`);
+      $(this).addClass(`revealed`);
+    });
   } else if (difficulty === "medium"){
     hard.style.display = "none";
-    numofRedacted = 8;
-  } else if (difficulty === "hard"){
-    numofRedacted = 12;
+    //set all non-used redacts to revealed
+    $(`.hard`).each(function(hard){
+      $(this).removeClass(`redacted`);
+      $(this).addClass(`revealed`);
+    });
   }
   //hide menu and show gameplay div
   gameplay.style.display = "inline";
