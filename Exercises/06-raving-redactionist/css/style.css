@@ -5,16 +5,33 @@ By default that's nothing.
 
 **********************************************/
 
+body {
+  background-color: #8c8c8c;
+}
+
 .gameplay {
   display: none;
 }
 
+.ending {
+  display: none;
+}
+
 #secret-document {
+  height: 90vh;
+  width: 40vw;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 25px;
   font-family: monospace;
-  font-size: 1.5rem;
-  margin-left: 5vh;
-  margin-right: 5vh;
+  font-size: 1.3rem;
+  margin-left: 25vw;
+  margin-top: 4vh;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-top: 2.5vh;
+  padding-bottom: 2vh;
   text-align: left;
+  overflow: scroll;
 }
 
 .redacted {
@@ -25,6 +42,59 @@ By default that's nothing.
 .revealed {
   background-color: rgba(255, 255, 255, 0);
   user-select: text;
-  color: #5697e3;
+  color: #d42626;
   text-decoration: underline;
+}
+
+#title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.menu h2 {
+  text-align: center;
+}
+
+.menu button {
+  margin-left: 2.5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  border: none;
+  border-radius: 0.2rem;
+  font-family: monospace;
+  font-size: 1.3rem;
+}
+
+#easyButton {
+  width: 9vw;
+  height: 6vh;
+  margin-left: 5vw;
+  background-color: #ffda24;
+}
+
+#mediumButton {
+  width: 9vw;
+  height: 6vh;
+  background-color: #4495f2;
+}
+
+#hardButton {
+  width: 9vw;
+  height: 6vh;
+  background-color: #f24444;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 14vh;
+  margin-bottom: 11vh;
+  width: 85%;
+}
+
+.difficulty {
+  margin-top: 8vh;
 }
