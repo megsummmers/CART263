@@ -39,7 +39,6 @@ function setup() {
       $redacted = $(`.redacted`);
       //removes one from timer every second
       timePassed -= 1;
-      console.log($redacted.length);
       if ($redacted.length === 0){
         //end countdown
         clearInterval();
