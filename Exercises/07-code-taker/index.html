@@ -16,36 +16,41 @@
   </head>
 
   <body>
-    <!-- HTML would go here if needed. -->
-    <section id="poem">
-      <h2><span class="secret">T</span>his Is Just To Say</h2>
-      <p>
-        I <span class="secret">h</span>ave eaten<br />
-        the plums<br />
-        that wer<span class="secret">e</span> in<br />
-        the icebox
+    <!-- Title + instructions -->
+    <section id="title">
+      <p class="title">Let's play Hangman</p>
+      <p class="instruction">
+        To guess a letter drag it into the box and if its true the box will turn green and autofill that letter.<br>
+        If you are wrong then the box will turn red and a new part of the hangman will appear.
       </p>
-      <p>
-        and which<br />
-        you we<span class="secret">r</span>e probably<br />
-        saving<br />
-        for br<span class="secret">e</span>akfast
-      </p>
-      <p>
-        Forgive <span class="secret">m</span>e<br />
-        they were del<span class="secret">i</span>cious<br />
-        so sweet<br />
-        a<span class="secret">n</span>d so cold
-      </p>
-      <h4>William Carlos Williams</h4>
+    </section>
+    <!-- All the letters the user can pick from + image -->
+    <section id="alphabet">
+      <div class="column">
+        <img src="assets/images/base.png" alt="Hangman image" id="hangman1">
+        <img src="assets/images/head.png" alt="Hangman image" class="hidden" id="hangman2">
+        <img src="assets/images/body.png" alt="Hangman image" class="hidden" id="hangman3">
+        <img src="assets/images/arm1.png" alt="Hangman image" class="hidden" id="hangman4">
+        <img src="assets/images/arm2.png" alt="Hangman image" class="hidden" id="hangman5">
+        <img src="assets/images/leg.png" alt="Hangman image" class="hidden" id="hangman6">
+        <img src="assets/images/hangman.png" alt="Hangman image" class="hidden" id="hangman7">
+      </div>
+      <div class="column" id="rightcolumn">
+        <span class="letter">A</span> <span class="letter">B</span> <span class="letter">C</span> <span class="letter">D</span> <span class="letter">E</span> <span class="letter">F</span> <span class="letter">G</span> <span class="letter">H</span><br>
+        <span class="letter">I</span> <span class="letter">J</span> <span class="letter">K</span> <span class="letter">L</span> <span class="letter">M</span> <span class="letter">N</span> <span class="letter">O</span> <span class="letter">P</span> <span class="letter">Q</span><br>
+        <span class="letter" >R</span> <span class="letter">S</span> <span class="letter">T</span> <span class="letter">U</span> <span class="letter">V</span> <span class="letter">W</span> <span class="letter">X</span> <span class="letter">Y</span> <span class="letter">Z</span>
+      </div>
     </section>
 
-    <!-- The secret answer area-->
-    <section id="answer"></section>
+    <!-- The word to guess goes here-->
+    <br>
+    <section id="answer">
+      <span id="space0" style="display: none"></span> <span id="space1" style="display: none"></span> <span id="space2" style="display: none"></span> <span id="space3" style="display: none"></span> <span id="space4" style="display: none"></span> <span id="space5" style="display: none"></span> <span id="space6" style="display: none"></span> <span id="space7" style="display: none"></span> <span id="space8" style="display: none"></span> <span id="space9" style="display: none"></span>
+    </section>
 
-    <div id="solved" title="Da Vinci?!">
+    <div id="solved" title="A true Hero">
       <p>
-        Congratulations you genuis!
+        You win! Congratulations :D
       </p>
     </div>
     <!-- My script(s) -->
