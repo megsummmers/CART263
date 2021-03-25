@@ -4,6 +4,21 @@ Here is a description of any special CSS used.
 By default that's nothing.
 
 **********************************************/
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.gamebox {
+  background-color: rgb(255, 255, 255, 0.7);
+  border-color: white;
+  border-style: solid;
+  padding: 4vh;
+  margin: 15vh;
+}
+
 #title {
   text-align: center;
   height: 10vh;
@@ -12,40 +27,51 @@ By default that's nothing.
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .instruction {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 #alphabet {
   display: flex;
   text-align: center;
-  font-size: 3rem;
+  font-size: 3.5vw;
 }
 
 .column {
   flex: 50%;
 }
 
-#rightcolumn {
+.used {
+  color: #b3b3b3;
+}
+
+#lettercolumn {
   margin-top: 10vh;
+  margin-right: 8vw;
+}
+
+#button {
+  height: 3vh;
+  width: 5vw;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 2px;
+  background-color: lightGreen;
+
 }
 
 #answer {
   margin-top: 5vh;
-  margin-left: 15vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
   height: 4rem;
-  width: 70vw;
   font-size: 2.2rem;
   text-align: center;
   border: 1px dashed;
   border-color: black;
-}
-
-.used {
-  color: #b3b3b3;
 }
 
 .hidden {

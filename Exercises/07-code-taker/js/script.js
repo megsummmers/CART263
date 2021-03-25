@@ -3,7 +3,7 @@ Code Taker (Turned into Hangman)
 Meg Summers
 
 The user will play the game hangman by trying to guess
-the (hopefully) randomized word by dragging letters into
+the randomized word by dragging letters into
 the box below. If the letter is found in the word The
 program will add the letters where they are placed in
 the word. If the user drags a letter that is not found in
@@ -12,13 +12,7 @@ when all 7-8 parts of the hangman are revealed the user loses
 if the user gets the word before that, they win.
 
 things to add:
-- Title screen w/instructions and (potentially) difficulty
-- end screen for win and lose, lose will show the word
-- Add hangman visual and box with all the letters
-  - each time a letter is taken out of the box it will
-    turn grey and not be draggable again
-- create bottom box with feature to show letters when they are
-  droppped in the box
+- difficulty
 */
 "use strict";
 
@@ -35,6 +29,7 @@ let letters = [];
 let used = false;
 let guessed = 0;
 let imageNum = 1;
+let difficulty = "Easy";
 
 setWord();
 
@@ -54,15 +49,15 @@ $(`#answer`).droppable({
       let hangmanLetter = letters[i];
       if (letter === hangmanLetter){
         //if one matches replace '_' with letter and set to used
-        document.getElementById(`space${i}`).innerHTML = letter;
+        $(`#space${i}`).html(letter);
         used = true;
         //change colours to green for a second
-        document.getElementById("answer").style.borderColor = "green";
-        document.getElementById("answer").style.backgroundColor = "DarkSeaGreen";
+        $(`#answer`).css("border-color", "green");
+        $(`#answer`).css("background-color", "DarkSeaGreen");
         //reset colour after a second
         setTimeout(function() {
-          document.getElementById("answer").style.borderColor = "black";
-          document.getElementById("answer").style.backgroundColor = "transparent";
+          $(`#answer`).css("border-color", "black");
+          $(`#answer`).css("background-color", "transparent");
         }, 1000);
         guessed += 1;
       }
@@ -70,22 +65,33 @@ $(`#answer`).droppable({
     //the letter was not used
     if (!used){
       //change colours to red for a second
-      document.getElementById("answer").style.borderColor = "red";
-      document.getElementById("answer").style.backgroundColor = "LightCoral";
+      $(`#answer`).css("border-color", "red");
+      $(`#answer`).css("background-color", "LightCoral");
       //reset colours
       setTimeout(function() {
-        document.getElementById("answer").style.borderColor = "black";
-        document.getElementById("answer").style.backgroundColor = "transparent";
+        $(`#answer`).css("border-color", "black");
+        $(`#answer`).css("background-color", "transparent");
       }, 1000);
       //change hangman image
-      document.getElementById(`hangman${imageNum}`).style.display = "none";
+      $(`#hangman${imageNum}`).hide();
       imageNum += 1;
-      document.getElementById(`hangman${imageNum}`).style.display = "inline";
+      $(`#hangman${imageNum}`).show();
+      $(`#imagecolumn`).effect("shake", {direction: "left", times:5, distance: 20}, 1000);
     }
     //once the user has guessed the right amount of letters
     //bring up dialog prompt and give new word
     if (guessed === letters.length){
       $(`#solved`).dialog(`open`);
+      resetGame();
+      setWord();
+    } else if (imageNum === 7 && difficulty === "Hard"){
+      $(`#wordreveal`).append(` ${word}.`)
+      $(`#lost`).dialog(`open`);
+      resetGame();
+      setWord();
+    } else if (imageNum === 11 && difficulty === "Easy"){
+      $(`#wordreveal`).append(` ${word}.`)
+      $(`#lost`).dialog(`open`);
       resetGame();
       setWord();
     }
@@ -104,6 +110,16 @@ $(`#solved`).dialog({
   }
 });
 
+//end dialog
+$(`#lost`).dialog({
+  autoOpen: false,
+  buttons: {
+    "...oops": function(){
+      $(this).dialog(`close`);
+    }
+  }
+});
+
 //sets up the word to be guessed
 function setWord() {
   //randomly selects a word from array
@@ -114,25 +130,45 @@ function setWord() {
   letters = word.split("");
   //set number of _ based on word
   for (let i = 0; i < letters.length; i++){
-    document.getElementById(`space${i}`).style.display = "inline";
-    document.getElementById(`space${i}`).innerHTML = "_";
+    $(`#answer`).append(`<span id="space${i}" class="spaces">_</span> `);
   }
-  //-------------- TEMPORARY for debug purposes ------------------
-  console.log(word);
+  $(`.space`)
 }
 
 //resets the game
 function resetGame() {
   //reset letter spots
-  for (let i = 0; i < 9; i++){
-    document.getElementById(`space${i}`).style.display = "none";
-    document.getElementById(`space${i}`).innerHTML = "";
-  }
-  //reset alphabet
-  $(`.letter`).draggable("enable");
+  // $(`#space`).text(`_`);
+  // $(`#space`).hide();
+  $(`#answer`).empty();
+  //re-enable dragging
+  $(`.used`).draggable("enable")
   //remove the used class
-  $(`.letter`).removeClass(`found`);
+  $(`.letter`).removeClass(`used`);
+  //hide current images
+  $(`#hangman${imageNum}`).hide();
   //reset variables
-  imageNum = 0;
+  imageNum = 1;
   guessed = 0;
+  //show first image
+  $(`#hangman${imageNum}`).show();
+}
+
+//changes difficulty of game aka num of guesses
+function changeDifficulty(){
+  //grabs current text in button (default is easy)
+  difficulty = $(`#button`).html();
+  //chnages button depending on inner text
+   if (difficulty === "Easy"){
+     difficulty = "Hard";
+     $(`#button`).html("Hard");
+     //changes colour
+     $(`#button`).css("background-color", "LightCoral");
+   } else if (difficulty === "Hard"){
+     difficulty = "Easy";
+     $(`#button`).html("Easy");
+     //changes colour
+     $(`#button`).css("background-color", "LightGreen");
+   }
+   console.log(difficulty);
 }
