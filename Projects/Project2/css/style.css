@@ -1,10 +1,182 @@
 body {
-  background-image: url("images/office.jpeg");
+  background-image: url("images/office.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%, 100%;
   background-position: center;
+  background-attachment: fixed;
   text-align: center;
   font-family: Helvetica, sans-serif;
   height: 100vh;
   width: 100vw;
+}
+
+/*************** Interview section ****************/
+
+.interview {
+  height: 90%;
+  width: 90%;
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+
+.textbox {
+  width: 90%;
+  height: 25vh;
+  margin-left: 5vw;
+  background-color: #b59079;
+  border-style: ridge;
+  border-color: #91715d;
+  border-width: 7px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.userText {
+  text-align: left;
+  font-size: 2.5vh;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-style: inset;
+  border-color: #91715d
+}
+
+.userText:hover {
+  background-color: #91715d;
+}
+
+#charText {
+  text-align: center;
+  overflow-wrap: break-word;
+  margin-right: 2.5vw;
+  font-size: 3.5vh;
+}
+
+/**************** Search Section ******************/
+.infotab {
+  display: none;
+  width: 90%;
+  height: 20vh;
+  margin-left: 5vw;
+  background-color: #b59079;
+  border-style: ridge;
+  border-color: #91715d;
+  border-width: 7px;
+}
+
+.infoButton {
+  width: 10%;
+  height: 4vh;
+  font-size: 1.5rem;
+  background-color: #91715d;
+  border: none;
+  margin-left: 45%;
+}
+
+.infoButton:hover {
+  background-color: #b59079;
+  border-color: #91715d;
+  border-style: solid;
+}
+
+#infoText {
+  font-size: 1.4rem;
+  overflow-wrap: break-word;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.click {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: row;
+}
+
+.obj {
+  width: 25vw;
+  height: 75vh;
+  display: block;
+  text-align: center;
+}
+
+#paintingTear {
+  margin-top: 38vh;
+  margin-left: 18vw;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#schedule {
+  margin-top: 62vh;
+  margin-left: 10vw;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#caroline {
+  margin-top: 20vh;
+  margin-left: 5vw;
+  cursor: pointer;
+}
+
+#glassCrack {
+  margin-top: 38vh;
+  margin-right: 4vw;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#note {
+  margin-top: 14vh;
+  margin-left: 18vw;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+.objectButton {
+  width: 11%;
+  height: 40%;
+  margin-top: 32%;
+}
+
+/************* Decipher Note Section *************/
+
+.page {
+  height: 75vh;
+  width: 40vw;
+  background-color: #FFFFFF;
+  font-family: monospace;
+  font-size: 1.3rem;
+  margin-left: 25vw;
+  margin-top: 10vh;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-top: 2.5vh;
+  padding-bottom: 5vh;
+  text-align: left;
+  line-height: 2.5;
+  overflow: scroll;
+}
+
+#answers {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 5vh;
+  padding: 4vh;
+  border-style: dotted;
+  border-color: black;
+}
+
+.found {
+  color: #c72424;
 }

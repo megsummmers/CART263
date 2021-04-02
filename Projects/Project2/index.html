@@ -10,13 +10,84 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <!-- Library script(s) go here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
   <body>
     <!-- HTML would go here if needed. -->
     <div class="office">
-      <div class="textbox">
-
+      <!-- Search the room html code -->
+      <div class="search">
+        <div class="click">
+          <div class="obj">
+            <img src="css/images/office-scratch.png"
+            alt="scratch in painting"
+            id="paintingTear">
+          </div>
+          <div class="obj">
+            <img src="css/images/office-schedule.png"
+            alt="scratch in painting"
+            id="schedule">
+          </div>
+          <div class="obj">
+            <img src="css/images/secretaryfull.png"
+            alt="Caroline art"
+            width="220" height="550"
+            id="caroline">
+          </div>
+          <div class="obj">
+            <img src="css/images/office-glass.png"
+            alt="crack in glass"
+            id="glassCrack">
+            <img src="css/images/office-note.png"
+            alt="scratch in painting"
+            id="note">
+          </div>
+          <div class="obj">
+          </div>
+        </div>
+        <div class="infotab" id="infotab">
+          <h1 id="infoTitle">Title text</h4>
+          <p id="infoText">information text</p>
+          <button class="infoButton" id="infoButton" onclick="changeScene()">Investigate</button>
+        </div>
+      </div>
+      <!-- Interview with suspect -->
+      <div class="interview" style="display: none;">
+        <section class="image">
+          <img src="css/images/secretary.png"
+          alt="Assistant image"
+          width="564" height:"650">
+        </section>
+        <section class="textbox">
+          <p id="charText">"Hello there..."</p>
+          <section class="choices">
+            <span class="userText" id="userText1">Who were you to the victim?</span>
+            <span class="userText" id="userText2">Where were you on the night of the murder?</span>
+            <span class="userText" id="userText3">How are you today?</span>
+          </section>
+        </section>
+      </div>
+      <!-- Dechiper Note-->
+      <div class="decipher" style="display: none;">
+        <section class="page">
+          <h1>To whomever reads this,</h1>
+          <p>
+            This is may be my <span class="mixed" id="word1">stal</span> moments <span class="mixed" id="word2">aielv</span>. I'm scared of <span class="mixed" id="word3">gdyin</span>.
+            There's someone <span class="mixed" id="word4">woloifnlg</span>... I think... I can hear <span class="mixed" id="word5">sopetfsot</span>. They are everywhere.
+            They are <span class="mixed" id="word6">bvaoe</span> me, outside my <span class="mixed" id="word7">rodo</span>, even outside my <span class="mixed" id="word8">dwinwo</span>...
+            I don't know what else to do so if <span class="mixed" id="word9">emeonso</span> finds this <span class="mixed" id="word10">oetn</span> and I'm no longer alive...
+          </p>
+          <p>Give all my wealth to my brother... he's the only one I can trust</p>
+          <h3>Signed, Nicolas Harper</h3>
+          <section id="answers">
+            <strong>Deciphered Words</strong> <br>
+            <span class="answer" id="word9">someone</span> <span class="answer" id="word1">last</span> <span class="answer" id="word8">window</span> <span class="answer" id="word3">dying</span> <span class="answer" id="word5">footsteps</span>
+            <br>
+            <span class="answer" id="word7">door</span> <span class="answer" id="word4">following</span> <span class="answer" id="word10">note</span> <span class="answer" id="word2">alive</span> <span class="answer" id="word6">above</span>
+          </section>
+        </section>
       </div>
     </div>
     <!-- My script(s) -->
