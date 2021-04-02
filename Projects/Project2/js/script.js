@@ -7,38 +7,42 @@ author, and this description to match your project!
 */
 
 "use strict";
-/*
-1("I'm his assistant, Caroline Wheeler.");
-2("I was out getting some documents for Mr. Harper. I only came back around 8 o'clock to find this mess.");
-3("Oh...um I guess I'm well. A little startled at the whole murder mess...");
-*/
 
-let set1 = {
-  title: ["I'm his assistant, Caroline Wheeler.", "I keep track of his schedule and fetch documents for him.", "No. Mr. Harper can be... unpredicatable at times", "Not irrational- he just did a lot of things without telling me"],
-  userText1: ["What do you do as his assistant?", "So you always know where he is?", "Would you say he was irrational at times?", " "],
-  userText2: ["Were you and Mr. Harper close?", "Do you like your job?", "Would you say he was anxious?", "thank you for your time."],
-  userText3: ["Do you like your job?", "What is your relationship to the victim?", "Did he have any enemies?", " "]
-}
-
-let set2 = {
-  title: ["I was out getting some documents for Mr. Harper. I came back to find this mess.", ],
-  userText1: ["What time did you come back?",],
-  userText2: ["Were you with him before you went out?", ],
-  userText3: ["What do you do as an assistant",]
-}
-
-let set3 = {
-  title: ["Oh...um I guess I'm well. A little startled at the whole murder mess..."],
-  userText1: ["Where were you the night of the murder?"],
-  userText2: ["I'm glad you're ok"],
-  userText3: ["Who were you to the victim?"]
-}
-
-let roundNum = 0;
-let scene = "interview";
+let roundNum = 1;
+let id = 1;
+let scene = "search";
+let interviewDone = false;
+let noteDone = false;
 let mixedWords = 10;
+let decipherTutorial = false;
 
-//Clickable section
+//------------- Change scene ---------------
+function changeScene(currentScene){
+  scene = currentScene;
+  console.log(scene, decipherTutorial);
+  if (scene === "search"){
+    $(`.tutorial`).css("display", "none");
+    $(`.search`).css("display", "block");
+  } else if (scene === "interview"){
+    $(`.search`).css("display", "none");
+    $(`.decipher`).css("display", "none");
+    $(`.interview`).css("display", "block");
+  } else if (scene === "decipherT"){
+    $(`.search`).css("display", "none");
+    $(`.decipher`).css("display", "block");
+    $(`.interview`).css("display", "none");
+    $(`#tutorial`).css("display", "block");
+    decipherTutorial = true;
+  } else if (scene === "decipher"){
+    $(`.search`).css("display", "none");
+    $(`.decipher`).css("display", "block");
+    $(`.interview`).css("display", "none");
+    $(`#tutorial`).css("display", "none");
+    $(`#main`).css("display", "block");
+  }
+}
+
+//------------- Search section ----------------
 $(`#glassCrack`).click(function(){
   $(`#infotab`).css("display", "block");
   $(`#infoButton`).css("display", "none");
@@ -68,18 +72,24 @@ $(`#note`).click(function(){
   $(`#infoButton`).css("display", "block");
   $(`#infoTitle`).html("Victim's final note");
   $(`#infoText`).html("This note is barely legible, must have been written quickly. It's going to take some effort to decipher it.");
-  scene = "decipher";
+  $(`#infoButton`).attr("onclick", 'changeScene("decipher")');
+  if (!decipherTutorial){
+    $(`#infoButton`).attr("onclick", 'changeScene("decipherT")');
+  }
 });
 
 $(`#caroline`).click(function(){
   $(`#infotab`).css("display", "block");
-  $(`#infoButton`).css("display", "block");
+  $(`#infoButton`).css("display", "none");
+  if (!interviewDone){
+    $(`#infoButton`).css("display", "block");
+  }
   $(`#infoTitle`).html("Caroline Wheeler");
   $(`#infoText`).html("Our first suspect. She's the victim's assistant");
-  scene = "interview";
+  $(`#infoButton`).attr("onclick", 'changeScene("interview")');
 });
 
-//page decipher Section
+//-------------- Note decipher section --------------
 $(`.mixed`).one(`mouseover`, function(event){
   $(this).addClass(`found`);
 })
@@ -114,47 +124,93 @@ $(`.mixed`).droppable({
   }
 })
 
-//change to minigame/Interview
-function changeScene(){
-  $(`.search`).css("display", "none");
-  if (scene === "interview"){
-    $(`.interview`).css("display", "block");
-  } else if (scene === "decipher"){
-    $(`.decipher`).css("display", "block");
-  }
-}
-
-//interview section
+//-------------- Interview section ----------------
 $("#userText1").click(function(){
-  interviewSet1(roundNum);
-  roundNum += 1;
+  if (roundNum === 1){
+    interviewSet();
+  } else if (roundNum === 2){
+    interviewSet2();
+  } else if (roundNum === 3){
+    interviewSet3();
+  } else if (roundNum === 4){
+    $(`.interview`).css("display", "none");
+    $(`.search`).css("display", "block");
+    $(`#infotab`).css("display", "none");
+    $(`#infoButton`).css("display", "none");
+    interviewDone = true;
+  }
 });
 $("#userText2").click(function(){
-  interviewSet2(roundNum);
-  roundNum += 1;
+  id += 1;
+  if (roundNum === 1){
+    interviewSet();
+  } else if (roundNum === 2){
+    interviewSet2();
+  } else if (roundNum === 3){
+    interviewSet3();
+  }
 });
 $("#userText3").click(function(){
-  interviewSet3(roundNum);
-  roundNum += 1;
+  id = 3;
+  interviewSet(roundNum, id);
 });
 
-function interviewSet1(roundNum){
-  $("#charText").html(set1.title[roundNum]);
-  $(`#userText1`).html(set1.userText1[roundNum]);
-  $(`#userText2`).html(set1.userText2[roundNum]);
-  $(`#userText3`).html(set1.userText3[roundNum]);
+function interviewSet(){
+  if (id === 1){
+    $("#charText").html("I'm his assistant, Caroline Wheeler.");
+    $(`#userText1`).html("Were you and Mr. Harper close?");
+    $(`#userText2`).html("What do you do as his assistant?");
+  } else if (id === 2){
+    $("#charText").html("I was out getting some documents for Mr. Harper. I came back to find this mess.");
+    $(`#userText1`).html("What do you do as his assistant?");
+    $(`#userText2`).html("What time did you come back?");
+  } else if (id === 3){
+    $("#charText").html("Oh...um I guess I'm well. A little startled at the whole murder mess...");
+    $(`#userText1`).html("When did you find out about murder?");
+    $(`#userText2`).html("Who were you to the victim?");
+  }
+  $(`#userText3`).css("display", "none");
+  roundNum += 1;
 }
 
-function interviewSet2(roundNum){
-  $("#charText").html(set2.title[roundNum]);
-  $(`#userText1`).html(set2.userText1[roundNum]);
-  $(`#userText2`).html(set2.userText2[roundNum]);
-  $(`#userText3`).html(set2.userText3[roundNum]);
+function interviewSet2(){
+  if (id === 1){
+    $("#charText").html("No not really, our relationship was strictly professional.");
+    $(`#userText1`).html("Where were you the night of the murder?");
+    $(`#userText2`).html("Would you say Mr. Harper was a paranoid person?");
+  } else if (id === 2){
+    $("#charText").html("I keep track of his schedule and fetch documents for him.");
+    $(`#userText1`).html("Would you say Mr. Harper was a paranoid person?");
+    $(`#userText2`).html("So do you always know where he is?");
+  } else if (id === 3){
+    $("#charText").html("I got to the house 8'o clock, The police were already here when I got here.");
+    $(`#userText1`).html("Were you and Mr. Harper close?");
+    $(`#userText2`).html("Did Mr. Harper have any enemies?");
+  } else if (id === 4){
+    $("#charText").html("I'm his assistant. I manage his schedule and organize his paperwork");
+    $(`#userText1`).html("Did Mr. Harper have any enemies?");
+    $(`#userText2`).html("Do you like your job?");
+  }
+  $(`#userText3`).css("display", "none");
+  roundNum += 1;
 }
 
-function interviewSet3(roundNum){
-  $("#charText").html(set3.title[roundNum]);
-  $(`#userText1`).html(set3.userText1[roundNum]);
-  $(`#userText2`).html(set3.userText2[roundNum]);
-  $(`#userText3`).html(set3.userText3[roundNum]);
+function interviewSet3(){
+  if (id === 1){
+    $("#charText").html("I was out getting some documents for Mr. Harper. I came back around 8 o'clock to find this mess.");
+  } else if (id === 2){
+    $("#charText").html("No not parniod but I would say he's unpredicatable. He did a lot of thing without informing me.");
+  } else if (id === 3){
+    $("#charText").html("No, he's a busy man. He did a lot of random things without informing me.");
+  } else if (id === 4){
+    $("#charText").html("No not really, our relationship was strictly professional.");
+  }else if (id === 5){
+    $("#charText").html("He was a lawyer so he made a lot of people mad... Although, I wouldn't say mad enough to kill him");
+  } else if (id === 6){
+    $("#charText").html("Well... It wasn't a bad job but Mr. Harper kept me very busy. I was always very tired...");
+  }
+  $(`#userText1`).html("Thank you for your time.");
+  $(`#userText2`).css("display", "none");
+  $(`#userText3`).css("display", "none");
+  roundNum += 1;
 }

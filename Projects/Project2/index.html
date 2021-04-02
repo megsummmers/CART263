@@ -17,8 +17,24 @@
   <body>
     <!-- HTML would go here if needed. -->
     <div class="office">
+      <!-- Tutorial portion of the game-->
+      <div class="tutorial">
+        <section class="page">
+          <h1>Instructions:</h1>
+          <p>
+            Your job is to search the scene with your mouse to find clues to Mr. Harper's murder.
+            If your cursor changes then you can click on the item and investigate it.
+            If there is a button labeled "investigate" in the description
+            then you can play a mini game to look into that object and obtain clues.
+          </p>
+          <p id="example"><u>Hover over this to see the cursor change.</u></p>
+          <p>Go find that murderer and good luck detective!</p>
+          <h3>Signed, Chief of Police </h3>
+          <button class="noteButton" onclick="changeScene('search')">Begin Investigation</button>
+        </section>
+      </div>
       <!-- Search the room html code -->
-      <div class="search">
+      <div class="search" style="display: none;">
         <div class="click">
           <div class="obj">
             <img src="css/images/office-scratch.png"
@@ -71,11 +87,24 @@
       </div>
       <!-- Dechiper Note-->
       <div class="decipher" style="display: none;">
-        <section class="page">
+        <div class="page" id="tutorial">
+          <h1>How to decode the victim's note</h1>
+          <p>
+            This is where the text of the note will be written <br>
+            You will have to hover you mouse over the text to find the <span class="mixed">missing</span> words.<br>
+            Try finding the word on this text
+            <br><button style="text-align: center;" class="noteButton" onclick="changeScene('decipher')">Start Deciphering</button>
+          </p>
+          <section id="answers">
+            Drag and drop the matching words from here to replace the missing ones from above.
+            <br><span class="answer"><strong>Drag this around</strong></span>
+          </section>
+        </div>
+        <div class="page" id="main" style="display: none;">
           <h1>To whomever reads this,</h1>
           <p>
             This is may be my <span class="mixed" id="word1">stal</span> moments <span class="mixed" id="word2">aielv</span>. I'm scared of <span class="mixed" id="word3">gdyin</span>.
-            There's someone <span class="mixed" id="word4">woloifnlg</span>... I think... I can hear <span class="mixed" id="word5">sopetfsot</span>. They are everywhere.
+            There's someone <span class="mixed" id="word4">woloifnlg</span> me... I think... I can hear <span class="mixed" id="word5">sopetfsot</span>. They are everywhere.
             They are <span class="mixed" id="word6">bvaoe</span> me, outside my <span class="mixed" id="word7">rodo</span>, even outside my <span class="mixed" id="word8">dwinwo</span>...
             I don't know what else to do so if <span class="mixed" id="word9">emeonso</span> finds this <span class="mixed" id="word10">oetn</span> and I'm no longer alive...
           </p>
@@ -87,7 +116,8 @@
             <br>
             <span class="answer" id="word7">door</span> <span class="answer" id="word4">following</span> <span class="answer" id="word10">note</span> <span class="answer" id="word2">alive</span> <span class="answer" id="word6">above</span>
           </section>
-        </section>
+          <button class="noteButton" onclick="changeScene('search')">Go back</button>
+        </div>
       </div>
     </div>
     <!-- My script(s) -->
