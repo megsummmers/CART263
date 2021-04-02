@@ -93,10 +93,16 @@ body {
 }
 
 #infoText {
-  font-size: 1.4rem;
+  font-size: 1rem;
   overflow-wrap: break-word;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+
+#infoTitle {
+  font-size: 1.4rem;
+  overflow-wrap: break-word;
+  text-algin: center;
 }
 
 .click {
