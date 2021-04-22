@@ -15,8 +15,8 @@
   </head>
 
   <body>
-    <!-- HTML would go here if needed. -->
-    <div class="office">
+    <!--- MAIN HALL ----------------->
+    <div class="mainHall">
       <!-- Tutorial portion of the game-->
       <div class="tutorial">
         <section class="page">
@@ -30,11 +30,19 @@
           <p id="example"><u>Hover over this to see the cursor change.</u></p>
           <p>Go find that murderer and good luck detective!</p>
           <h3>Signed, Chief of Police </h3>
-          <button class="noteButton" onclick="changeScene('search')">Begin Investigation</button>
+          <button class="noteButton" onclick="changeScene('tutorial')">Begin Investigation</button>
         </section>
       </div>
+      <div class="travelscene" style="display: none">
+        <button onclick="changeRoom('office')">Go to office</button>
+        <button onclick="changeRoom('bedroom')">Go to bedroom</button>
+        <button onclick="changeRoom('treasure')">Go to treasure room</button>
+      </div>
+    </div>
+    <!--- OFFICE SCENE ------------------->
+    <div class="office" style="display: none">
       <!-- Search the room html code -->
-      <div class="search" style="display: none;">
+      <div class="search">
         <div class="click">
           <div class="obj">
             <img src="css/images/office-scratch.png"
@@ -56,17 +64,18 @@
             <img src="css/images/office-glass.png"
             alt="crack in glass"
             id="glassCrack">
+          </div>
+          <div class="obj">
             <img src="css/images/office-note.png"
             alt="scratch in painting"
             id="note">
-          </div>
-          <div class="obj">
           </div>
         </div>
         <div class="infotab" id="infotab">
           <p id="infoTitle"><strong>Title text</strong></p>
           <p id="infoText">information text</p>
           <button class="infoButton" id="infoButton" onclick="changeScene()">Investigate</button>
+          <button onclick="changeRoom('main')">Return to main hall</button>
         </div>
       </div>
       <!-- Interview with suspect -->
@@ -77,7 +86,7 @@
           width="564" height:"650">
         </section>
         <section class="textbox">
-          <p id="charText">"Hello there..."</p>
+          <p id="charText"><strong>"Hello there..."</strong></p>
           <section class="choices">
             <span class="userText" id="userText1">Who were you to the victim?</span>
             <span class="userText" id="userText2">Where were you on the night of the murder?</span>
@@ -119,6 +128,14 @@
           <button class="noteButton" onclick="changeScene('search')">Go back</button>
         </div>
       </div>
+    </div>
+    <!--- TREASURE ROOM -------------->
+    <div class="treasure" style="display: none">
+
+    </div>
+    <!--- BEDROOM ------------------->
+    <div class="bedroom" style="display: none">
+
     </div>
     <!-- My script(s) -->
     <script src="js/script.js"></script>

@@ -16,13 +16,37 @@ let noteDone = false;
 let mixedWords = 10;
 let decipherTutorial = false;
 
+//------------- CHANGE LOCATIONS ------------
+function changeRoom(nextRoom){
+  if (nextRoom === "office"){
+    $(`.mainHall`).css("display", "none");
+    $(`.office`).css("display", "block");
+    $(`body`).css('background-image', 'url("css/images/office.png")');
+  } else if (nextRoom === "treasure"){
+    $(`.mainHall`).css("display", "none");
+    $(`.treasure`).css("display", "block");
+    $(`body`).css('background-image', 'url("css/images/treasure.png")');
+  } else if (nextRoom === "bedroom"){
+    $(`.mainHall`).css("display", "none");
+    $(`.bedroom`).css("display", "block");
+    $(`body`).css('background-image', 'url("css/images/bedroom.png")');
+  } else if (nextRoom === "main"){
+    $(`.mainHall`).css("display", "block");
+    $(`#infotab`).css("display", "none");
+    $(`#infoButton`).css("display", "none");
+    $(`.office`).css("display", "none");
+    $(`.treasure`).css("display", "none");
+    $(`.bedroom`).css("display", "none");
+    $(`body`).css('background-image', 'url("css/images/main-hall.png")');
+  }
+}
+
 //------------- Change scene ---------------
 function changeScene(currentScene){
   scene = currentScene;
-  console.log(scene, decipherTutorial);
-  if (scene === "search"){
+  if (scene === "tutorial"){
     $(`.tutorial`).css("display", "none");
-    $(`.search`).css("display", "block");
+    $(`.travelscene`).css("display", "block");
   } else if (scene === "interview"){
     $(`.search`).css("display", "none");
     $(`.decipher`).css("display", "none");
@@ -193,6 +217,9 @@ function interviewSet2(){
   }
   $(`#userText3`).css("display", "none");
   roundNum += 1;
+  if (roundNum >= 5){
+    $(`#userText2`).css("display", "none");
+  }
 }
 
 function interviewSet3(){
