@@ -20,23 +20,28 @@ let decipherTutorial = false;
 let scheduleOrder = ["1", "4", "2", "5", "3", "6"];
 let scheduleScore = 6;
 let notepadStatus = "open";
+//fingerprint
+let fingerprintCode = 0;
 
 //------------- CHANGE LOCATIONS ------------
 function changeRoom(nextRoom){
   if (nextRoom === "office"){
     $(`.mainHall`).css("display", "none");
+    $(`.notepad`).css("display", "none");
     $(`.office`).css("display", "block");
     $(`#returnButton1`).css("display", "block");
     $(`body`).css('background-image', 'url("css/images/office.png")');
     currentRoom = "office";
   } else if (nextRoom === "treasure"){
     $(`.mainHall`).css("display", "none");
+    $(`.notepad`).css("display", "none");
     $(`.treasure`).css("display", "block");
     $(`#returnButton2`).css("display", "block");
     $(`body`).css('background-image', 'url("css/images/treasure.png")');
     currentRoom = "treasure";
   } else if (nextRoom === "bedroom"){
     $(`.mainHall`).css("display", "none");
+    $(`.notepad`).css("display", "none");
     $(`.bedroom`).css("display", "block");
     $(`#returnButton3`).css("display", "block");
     $(`body`).css('background-image', 'url("css/images/bedroom.png")');
@@ -48,6 +53,7 @@ function changeRoom(nextRoom){
     $(`.office`).css("display", "none");
     $(`.treasure`).css("display", "none");
     $(`.bedroom`).css("display", "none");
+    $(`.notepad`).css("display", "block");
     $(`body`).css('background-image', 'url("css/images/main-hall.png")');
     currentRoom = "travel";
   }
@@ -70,6 +76,12 @@ function changeScene(currentScene){
     $(`#infotab`).css("display", "none");
     $(`#infoButton`).css("display", "none");
     $(`body`).css('background-image', 'url("css/images/office.png")');
+  } else if (scene === "bedroom"){
+    $(`.phone`).css("display", "none");
+    $(`.search`).css("display", "block");
+    $(`#infotab`).css("display", "none");
+    $(`#infoButton`).css("display", "none");
+    $(`body`).css('background-image', 'url("css/images/bedroom.png")');
   } else if (scene === "decipherT"){
     $(`.search`).css("display", "none");
     $(`.decipher`).css("display", "block");
@@ -104,11 +116,11 @@ function changeScene(currentScene){
     $(`.glassPuzzle`).css("display", "block");
     $(`.interview`).css("display", "none");
     $(`body`).css('background-image', 'url("css/images/glass-puzzle.jpg")');
-  } else if (scene === "glass"){
+  } else if (scene === "phone"){
     $(`.search`).css("display", "none");
     $(`.phone`).css("display", "block");
     $(`.interview`).css("display", "none");
-    $(`body`).css('background-image', 'url("css/images/glass-puzzle.jpg")');
+    $(`body`).css('background-image', 'url("css/images/phone-bg-lock.jpg")');
   }
 }
 
@@ -193,6 +205,7 @@ $(`#phone`).click(function(){
   $(`#infotab3`).css("display", "block");
   $(`#infoButton3`).css("display", "block");
   $(`#returnButton3`).css("display", "none");
+  $(`#phoneButton`).css("display", "block");
   $(`#infoTitle3`).html("The victims phone");
   $(`#infoText3`).html("Strange it wasn't on his person when he died");
   $(`#infoButton3`).attr("onclick", 'changeScene("phone")');
@@ -242,16 +255,14 @@ $(`#danielle`).click(function(){
 
 //-------------- Notepad ------------------------
 
-$(`.notepad`).click(function(){
-  if (notepadStatus === "open"){
+$(`#notepadOpen`).click(function(){
     $(`.open`).css("display", "none");
     $(`.closed`).css("display", "block");
-    notepadStatus = "closed";
-  } else if (notepadStatus === "closed"){
-    $(`.open`).css("display", "block");
-    $(`.closed`).css("display", "none");
-    notepadStatus = "open";
-  }
+});
+
+$(`#notepadClosed`).click(function(){
+  $(`.open`).css("display", "block");
+  $(`.closed`).css("display", "none");
 })
 
 //-------------- Note decipher section --------------
@@ -358,6 +369,96 @@ $(`.piece`).draggable({
       $(`#glassButton`).css("display", "block");
     }
   }
+});
+
+//-------------- Phone Investigation ---------------
+//fade in on hover
+$(`#fingerprint1`).hover(function(){
+  $(this).css("opacity", "1");
+}, function(){
+  $(this).css("opacity", "0");
+});
+
+$(`#fingerprint2`).hover(function(){
+  $(this).css("opacity", "1");
+}, function(){
+  $(this).css("opacity", "0");
+});
+
+$(`#fingerprint3`).hover(function(){
+  $(this).css("opacity", "1");
+}, function(){
+  $(this).css("opacity", "0");
+});
+
+$(`#fingerprint4`).hover(function(){
+  $(this).css("opacity", "1");
+}, function(){
+  $(this).css("opacity", "0");
+});
+
+$(`#fingerprint5`).hover(function(){
+  $(this).css("opacity", "1");
+}, function(){
+  $(this).css("opacity", "0");
+});
+
+//passcode
+$(`#fingerprint4`).click(function(){
+  fingerprintCode = 1;
+});
+
+$(`#fingerprint3`).click(function(){
+  if (fingerprintCode === 1){
+    fingerprintCode = 2;
+  } else {
+    fingerprintCode = 0;
+  }
+});
+
+$(`#fingerprint2`).click(function(){
+  if (fingerprintCode === 2){
+    fingerprintCode = 3;
+  } else {
+    fingerprintCode = 0;
+  }
+});
+
+$(`#fingerprint1`).click(function(){
+  if (fingerprintCode === 3){
+    fingerprintCode = 4;
+  } else {
+    fingerprintCode = 0;
+  }
+});
+
+$(`#fingerprint5`).click(function(){
+  if (fingerprintCode === 4){
+    $(`.locked`).css("display", "none");
+    $(`.unlocked`).css("display", "block");
+    $(`body`).css('background-image', 'url("css/images/phone-bg.jpg")');
+    $(`#textsC`).css("display", "block");
+  } else {
+    fingerprintCode = 0;
+  }
+});
+
+$(`#iconC`).click(function(){
+  $(`#textsC`).css("display", "block");
+  $(`#textsD`).css("display", "none");
+  $(`#textsS`).css("display", "none");
+});
+
+$(`#iconD`).click(function(){
+  $(`#textsC`).css("display", "none");
+  $(`#textsD`).css("display", "block");
+  $(`#textsS`).css("display", "none");
+});
+
+$(`#iconS`).click(function(){
+  $(`#textsC`).css("display", "none");
+  $(`#textsD`).css("display", "none");
+  $(`#textsS`).css("display", "block");
 });
 
 //-------------- Interview section ----------------

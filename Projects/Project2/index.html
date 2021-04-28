@@ -19,12 +19,14 @@
       <div class="open">
         <img src="css/images/notepad.png"
         alt="Notepad with hints"
-        width="647" height="1000">
+        width="647" height="1000"
+        id="notepadOpen">
       </div>
       <div class="closed" style="display: none">
         <img src="css/images/notepad-top.png"
         alt="Notepad with hints"
-        width="647" height="127">
+        width="647" height="127"
+        id="notepadClosed">
       </div>
     </div>
     <!--- MAIN HALL ----------------->
@@ -339,6 +341,60 @@
             <span class="userText" id="danielleQ3">You look very tired, were you up late?</span>
           </section>
         </section>
+      </div>
+      <div class="phone" style="display: none">
+        <div class="miniTextbox">
+          <p class="miniText" id="treasuretext1"><strong>Hover over the phone to find out the code through fingerprints</strong></p>
+          <p class="miniText" id="treasuretext2">Hint: The fingerprints will be different opacity to show how old they are</p>
+          <button class="miniButton" id="treasureButton" style="display: none" onclick='changeScene("bedroom")'>Return to room</button>
+        </div>
+        <div class="locked">
+          <div class="column">
+            <img src="css/images/fingerprint1.png"
+            alt="darkest fingerprint"
+            id="fingerprint1" class="fingerprints">
+          </div>
+          <div class="column">
+            <img src="css/images/fingerprint3.png"
+            alt="darkest fingerprint"
+            id="fingerprint3" class="fingerprints">
+            <img src="css/images/fingerprint1.png"
+            alt="darkest fingerprint"
+            id="fingerprint5" class="fingerprints">
+          </div>
+          <div class="column">
+            <img src="css/images/fingerprint2.png"
+            alt="darkest fingerprint"
+            id="fingerprint2" class="fingerprints">
+            <img src="css/images/fingerprint4.png"
+            alt="darkest fingerprint"
+            id="fingerprint4" class="fingerprints">
+          </div>
+        </div>
+        <div class="unlocked" style="display: none">
+          <div class="top">
+            <img src="css/images/iconC.png"
+            id="iconC" class="icon">
+            <img src="css/images/iconD.png"
+            id="iconD" class="icon">
+            <img src="css/images/iconS.png"
+            id="iconS" class="icon">
+          </div>
+          <div class="text">
+            <img src="css/images/textsC.png"
+            id="textsC" class="icon"
+            style="display: none">
+            <img src="css/images/textsD.png"
+            id="textsD" class="icon"
+            style="display: none">
+            <img src="css/images/textsS.png"
+            id="textsS" class="icon"
+            style="display: none">
+          </div>
+          <div class="float">
+            <button class="miniButton" id="phoneButton" style="display: none" onclick='changeScene("bedroom")'>Return to room</button>
+          </div>
+        </div>
       </div>
     </div>
     <!-- My script(s) -->

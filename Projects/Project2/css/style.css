@@ -36,11 +36,14 @@ body {
 .notepad {
   z-index: 2;
   position: absolute;
+  margin-top: 200px;
   margin-left: 600px;
+  width: 650px;
+  height: 800px;
 }
 
 .closed {
-  margin-top: 865px;
+  margin-top: 665px;
 }
 
 /*************** Travel Scene *******************/
@@ -517,4 +520,95 @@ body {
   height: auto;
 }
 
-/******************* Glass Puzzle *********************/
+/******************* phone puzzle *********************/
+
+.locked {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 420px;
+  height: 675px;
+  margin-top: 65px;
+  margin-left: 675px;
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  width: 140px;
+  height: 675px;
+}
+
+#fingerprint1 {
+  margin-top: 335px;
+  margin-left: 50px;
+  opacity: 0;
+}
+
+#fingerprint2 {
+  margin-top: 100px;
+  margin-right: 50px;
+  opacity: 0;
+}
+
+#fingerprint3 {
+  margin-top: 225px;
+  opacity: 0;
+}
+
+#fingerprint4 {
+  margin-top: 115px;
+  margin-right: 50px;
+  opacity: 0;
+}
+
+#fingerprint5 {
+  margin-top: 100px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+/* Phone unlocked*/
+.top {
+  display: flex;
+}
+
+#iconC {
+  display: block;
+  margin-top: 75px;
+  margin-left: 700px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+#iconD {
+  display: block;
+  margin-top: 75px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+#iconS {
+  display: block;
+  margin-top: 75px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+#textsC {
+  margin-left: 625px;
+  margin-top: 50px;
+}
+
+#textsD {
+  margin-left: 625px;
+  margin-top: 50px;
+}
+
+#textsS {
+  margin-left: 625px;
+  margin-top: 25px;
+}
+
+#phoneButton {
+  margin-left: 150px;
+  margin-top: 80px;
+}
