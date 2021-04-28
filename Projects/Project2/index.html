@@ -15,12 +15,24 @@
   </head>
 
   <body>
+    <div class="notepad" style="display: none">
+      <div class="open">
+        <img src="css/images/notepad.png"
+        alt="Notepad with hints"
+        width="647" height="1000">
+      </div>
+      <div class="closed" style="display: none">
+        <img src="css/images/notepad-top.png"
+        alt="Notepad with hints"
+        width="647" height="127">
+      </div>
+    </div>
     <!--- MAIN HALL ----------------->
     <div class="mainHall">
       <!-- Tutorial portion of the game-->
       <div class="tutorial">
         <section class="page">
-          <h1>Instructions:</h1>
+          <h2>Instructions:</h2>
           <p>
             Your job is to search the scene with your mouse to find clues to Mr. Harper's murder.
             If your cursor changes then you can click on the item and investigate it.
@@ -34,15 +46,27 @@
         </section>
       </div>
       <div class="travelscene" style="display: none">
-        <button onclick="changeRoom('office')">Go to office</button>
-        <button onclick="changeRoom('bedroom')">Go to bedroom</button>
-        <button onclick="changeRoom('treasure')">Go to treasure room</button>
+        <div class="third">
+          <button class="officeButton"onclick="changeRoom('office')">Go to<br>The Office</button>
+        </div>
+        <div class="third">
+          <button class="bedroomButton"onclick="changeRoom('bedroom')">Go to<br> The Bedroom</button>
+        </div>
+        <div class="third">
+          <button class="treasuryButton"onclick="changeRoom('treasure')">Go to<br> The Treasure room</button>
+        </div>
       </div>
     </div>
     <!--- OFFICE SCENE ------------------->
     <div class="office" style="display: none">
       <!-- Search the room html code -->
       <div class="search">
+        <div class="infotab" id="infotab1">
+          <p class="infoTitle" id="infoTitle1"><strong>Start Investigating the Office</strong></p>
+          <p class="infoText" id="infoText1">Use your mouse to find clues. When clues are hoverd over your cursor will change!</p>
+          <button class="infoButton" id="infoButton1" onclick="changeScene()" style="display: none">Investigate</button>
+          <button class="returnButton" id="returnButton1" onclick="changeRoom('main')">Return to main hall</button>
+        </div>
         <div class="click">
           <div class="obj">
             <img src="css/images/office-scratch.png"
@@ -55,7 +79,7 @@
             id="schedule">
           </div>
           <div class="obj">
-            <img src="css/images/secretaryfull.png"
+            <img src="css/images/caroline.png"
             alt="Caroline art"
             width="200" height="500"
             id="caroline">
@@ -71,17 +95,11 @@
             id="note">
           </div>
         </div>
-        <div class="infotab" id="infotab">
-          <p id="infoTitle"><strong>Title text</strong></p>
-          <p id="infoText">information text</p>
-          <button class="infoButton" id="infoButton" onclick="changeScene()">Investigate</button>
-          <button onclick="changeRoom('main')">Return to main hall</button>
-        </div>
       </div>
       <!-- Interview with suspect -->
       <div class="interview" style="display: none;">
         <section class="image">
-          <img src="css/images/secretary.png"
+          <img src="css/images/carolinehalf.png"
           alt="Assistant image"
           width="564" height:"650">
         </section>
@@ -96,18 +114,22 @@
       </div>
       <!-- Dechiper Note-->
       <div class="decipher" style="display: none;">
+        <div class="miniTextbox" id="decipherTextbox"style="display: none">
+          <p class="miniText" id="deciphertext1"><strong>Looks like the victim was hearing footsteps everywhere. Was it paranoia or were there actually people there?</strong></p>
+          <button class="miniButton" id="decipherButton" onclick='changeScene("office")'>Return to room</button>
+        </div>
         <div class="page" id="tutorial">
           <h1>How to decode the victim's note</h1>
           <p>
             This is where the text of the note will be written <br>
             You will have to hover you mouse over the text to find the <span class="mixed">missing</span> words.<br>
-            Try finding the word on this text
-            <br><button style="text-align: center;" class="noteButton" onclick="changeScene('decipher')">Start Deciphering</button>
+            Try finding the word on this text.
           </p>
           <section id="answers">
             Drag and drop the matching words from here to replace the missing ones from above.
             <br><span class="answer"><strong>Drag this around</strong></span>
           </section>
+          <br><button style="text-align: center;" class="noteButton" onclick="changeScene('decipher')">Start Deciphering</button>
         </div>
         <div class="page" id="main" style="display: none;">
           <h1>To whomever reads this,</h1>
@@ -125,17 +147,199 @@
             <br>
             <span class="answer" id="word7">door</span> <span class="answer" id="word4">following</span> <span class="answer" id="word10">note</span> <span class="answer" id="word2">alive</span> <span class="answer" id="word6">above</span>
           </section>
-          <button class="noteButton" onclick="changeScene('search')">Go back</button>
+        </div>
+      </div>
+      <div class="schedule" style="display: none">
+        <div class="miniTextbox" id="scheduleTextbox">
+          <p class="miniText" id="scheduletext1"><strong>Sort the events on the dropped schedule</strong></p>
+          <p class="miniText" id="scheduletext2">Drag the coloured boxes to rearrange them in the proper time then hit "Check schedule order" to confirm the order</p>
+          <button class="miniButton" id="scheduleButton" onclick='changeScene("office")' style="display: none">Return to room</button>
+        </div>
+        <div class="schedulePage">
+          <h2>Schedule for April 28th, Nicolas Harper</h2>
+          <div id="sortEvents">
+            <li class="event active" id="1">Item 1</li>
+            <li class="event active" id="2">Item 2</li>
+            <li class="event active" id="3">Item 3</li>
+            <li class="event active" id="4">Item 4</li>
+            <li class="event active" id="5">Item 5</li>
+            <li class="event active" id="6">Item 6</li>
+          </div>
+          <button class="scheduleCheck" onclick="checkOrder()">Check schedule order</button>
         </div>
       </div>
     </div>
     <!--- TREASURE ROOM -------------->
     <div class="treasure" style="display: none">
-
+      <!-- Search the room html code -->
+      <div class="search">
+        <div class="infotab" id="infotab2">
+          <p class="infoTitle" id="infoTitle2"><strong>Start investigating the Treasury</strong></p>
+          <p class="infoText" id="infoText2">Use your mouse to find clues. When clues are hoverd over your cursor will change!</p>
+          <button class="infoButton" id="infoButton2" onclick="changeScene()">Investigate</button>
+          <button class="returnButton" id="returnButton2" onclick="changeRoom('main')">Return to main hall</button>
+        </div>
+        <div class="click">
+          <div class="obj">
+            <img src="css/images/handprint.png"
+            alt="bloody handprint"
+            id="handprint">
+          </div>
+          <div class="obj">
+            <img src="css/images/knuckles.png"
+            alt="brass knuckle treasure"
+            id="knuckles">
+          </div>
+          <div class="obj">
+            <img src="css/images/treasures.png"
+            alt="treasure shelf"
+            id="treasures">
+          </div>
+          <div class="obj">
+            <img src="css/images/glass.png"
+            alt="broken glass"
+            id="glass">
+          </div>
+          <div class="obj">
+            <img src="css/images/shane.png"
+            alt="Shane Harper"
+            width="250" height="500"
+            id="shane">
+          </div>
+        </div>
+      </div>
+      <!--- Interview with suspect -->
+      <div class="interview" style="display: none;">
+        <section class="image">
+          <img src="css/images/shanehalf.png"
+          alt="Assistant image"
+          width="564" height:"650">
+        </section>
+        <section class="textbox">
+          <p class="charText" id="shaneText"><strong>"Hey, you the detective or something?"</strong></p>
+          <section class="choices">
+            <span class="userText" id="shaneQ1">Who were you to the victim?</span>
+            <span class="userText" id="shaneQ2">What are you doing in here, this is a crime scene?</span>
+            <span class="userText" id="shaneQ3">Where were you the night of the murder?</span>
+          </section>
+        </section>
+      </div>
+      <!--- Sort the Treasures -->
+      <div class="treasureSort" style="display: none">
+        <div class="miniTextbox">
+          <p class="miniText" id="treasuretext1"><strong>Drag and drop the treasures in their correct place in the display</strong></p>
+          <p class="miniText" id="treasuretext2">Hint: From the blue sky above to the red dirt below, gold shall always be my favorite.<br>
+          The one that can strike lies down to the right and the biggest treasure of all right behind. <br>
+          But numerous lie on top in bunch, to steal before the brute can punch.</p></p>
+          <button class="miniButton" id="treasureButton" style="display: none" onclick='changeScene("treasure")'>Return to room</button>
+        </div>
+        <div class="position">
+          <div class="row">
+            <img src="css/images/green-necklace.png"
+            alt="Gold sword"
+            id="greenNecklace" class="answer">
+            <img src="css/images/red-necklace.png"
+            alt="Gold sword"
+            id="redNecklace" class="answer">
+          </div>
+          <div class="row">
+            <img src="css/images/blue-necklace.png"
+            alt="Gold sword"
+            id="blueNecklace" class="answer">
+            <img src="css/images/sword.png"
+            alt="Gold sword"
+            id="sword" class="answer">
+          </div>
+          <div class="row">
+            <img src="css/images/green-necklace.png"
+            alt="Gold sword"
+            id="greenNecklace2" class="sort">
+            <img src="css/images/red-necklace.png"
+            alt="Gold sword"
+            id="redNecklace2" class="sort">
+            <img src="css/images/blue-necklace2.png"
+            alt="Gold sword"
+            id="blueNecklace2" class="sort">
+            <img src="css/images/sword.png"
+            alt="Gold sword"
+            id="sword2" class="sort">
+          </div>
+        </div>
+      </div>
+      <!--- Glass shard sort puzzle -->
+      <div class="glassPuzzle" style="display: none">
+        <div class="miniTextbox">
+          <p class="miniText" id="glasstext1"><strong>Piece together the broken glass to create the square</strong></p>
+          <p class="miniText" id="glasstext2">Make sure that all the piece line up<br>Pay close attention to the blood stain</p>
+          <button class="miniButton" id="glassButton" style="display: none" onclick='changeScene("treasure")'>Return to room</button>
+        </div>
+        <div class="shards">
+          <img src="css/images/shard1.png" alt="glass shard" id="piece1" class="piece" solutionX="80" solutionY="207">
+          <img src="css/images/shard2.png" alt="glass shard" id="piece2" class="piece" solutionX="105" solutionY="209">
+          <img src="css/images/shard3.png" alt="glass shard" id="piece3" class="piece" solutionX="252" solutionY="203">
+          <img src="css/images/shard4.png" alt="glass shard" id="piece4" class="piece" solutionX="482" solutionY="196">
+          <img src="css/images/shard5.png" alt="glass shard" id="piece5" class="piece" solutionX="844" solutionY="213">
+          <img src="css/images/shard6.png" alt="glass shard" id="piece6" class="piece" solutionX="356" solutionY="366">
+          <img src="css/images/shard7.png" alt="glass shard" id="piece7" class="piece" solutionX="501" solutionY="362">
+          <img src="css/images/shard8.png" alt="glass shard" id="piece8" class="piece" solutionX="799" solutionY="295">
+          <img src="css/images/shard9.png" alt="glass shard" id="piece9" class="piece" solutionX="87" solutionY="715">
+          <img src="css/images/shard10.png" alt="glass shard" id="piece10" class="piece" solutionX="161" solutionY="626">
+          <img src="css/images/shard11.png" alt="glass shard" id="piece11" class="piece" solutionX="337" solutionY="554">
+          <img src="css/images/shard12.png" alt="glass shard" id="piece12" class="piece" solutionX="327" solutionY="743">
+          <img src="css/images/shard13.png" alt="glass shard" id="piece13" class="piece" solutionX="692" solutionY="626">
+        </div>
+      </div>
     </div>
     <!--- BEDROOM ------------------->
     <div class="bedroom" style="display: none">
-
+      <!-- Search the room html code -->
+      <div class="search">
+        <div class="infotab" id="infotab3">
+          <p class="infoTitle" id="infoTitle3"><strong>Investigate the Bedroom</strong></p>
+          <p class="infoText" id="infoText3">Use your mouse to find clues. When clues are hoverd over your cursor will change!</p>
+          <button class="infoButton" id="infoButton3" onclick="changeScene()">Investigate</button>
+          <button class="returnButton" id="returnButton3" onclick="changeRoom('main')">Return to main hall</button>
+        </div>
+        <div class="click">
+          <div class="obj">
+            <img src="css/images/phone.png"
+            alt="victims phone"
+            id="phone">
+          </div>
+          <div class="obj">
+            <img src="css/images/wine.png"
+            alt="empty wine bottle and glass"
+            id="wine">
+          </div>
+          <div class="obj">
+            <img src="css/images/danielle.png"
+            alt="Danielle Harper"
+            width="286" height="600"
+            id="danielle">
+          </div>
+          <div class="obj">
+            <img src="css/images/reminder.png"
+            alt="paper with reminders"
+            id="reminder">
+          </div>
+        </div>
+      </div>
+      <!-- Interview with suspect -->
+      <div class="interview" style="display: none;">
+        <section class="image">
+          <img src="css/images/daniellehalf.png"
+          alt="Assistant image"
+          width="564" height:"650">
+        </section>
+        <section class="textbox">
+          <p class="charText" id="danielleText"><strong>"Oh, Hello. You must be the detective on the case"</strong></p>
+          <section class="choices">
+            <span class="userText" id="danielleQ1">Where were you the night of the murder?</span>
+            <span class="userText" id="danielleQ2">Who were you to the victim?</span>
+            <span class="userText" id="danielleQ3">You look very tired, were you up late?</span>
+          </section>
+        </section>
+      </div>
     </div>
     <!-- My script(s) -->
     <script src="js/script.js"></script>

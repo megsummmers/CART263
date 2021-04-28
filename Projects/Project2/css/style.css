@@ -2,7 +2,6 @@ body {
   background-image: url("images/main-hall.png");
   background-repeat: no-repeat;
   background-size: 1850px 1000px;
-  background-position: center;
   background-attachment: fixed;
   text-align: center;
   font-family: Helvetica, sans-serif;
@@ -11,18 +10,96 @@ body {
 }
 
 .office {
+  z-index: 1;
   width: 100%;
   height: 100%;
+}
+
+.treasure {
+  z-index: 1;
+}
+
+.bedroom {
+  z-index: 1;
+}
+
+.mainHall {
+  z-index: 1;
 }
 
 #example:hover {
   cursor: pointer;
 }
 
+/*************** Notepad ***********************/
+
+.notepad {
+  z-index: 2;
+  position: absolute;
+  margin-left: 600px;
+}
+
+.closed {
+  margin-top: 865px;
+}
+
+/*************** Travel Scene *******************/
+
+.travelscene {
+  z-index: 1;
+  width: 1850px;
+  height: 1000px;
+  display: flex;
+  flex-direction: row;
+}
+
+.third {
+  width: 600px;
+  height: 1000px;
+  flex: 1;
+}
+
+.officeButton {
+  margin-top: 500px;
+  margin-right: 250px;
+  width: 300px;
+  height: 125px;
+  font-size: 2rem;
+  background-color: #b59079;
+  border-style: ridge;
+  border-color: #91715d;
+  border-width: 7px;
+  border-radius: 25px;
+}
+
+.bedroomButton {
+  margin-top: 100px;
+  width: 300px;
+  height: 125px;
+  font-size: 2rem;
+  background-color: #b59079;
+  border-style: ridge;
+  border-color: #91715d;
+  border-width: 7px;
+  border-radius: 25px;
+}
+
+.treasuryButton {
+  margin-top: 500px;
+  margin-left: 100px;
+  width: 300px;
+  height: 125px;
+  font-size: 2rem;
+  background-color: #b59079;
+  border-style: ridge;
+  border-color: #91715d;
+  border-width: 7px;
+  border-radius: 25px;
+}
 /*************** Interview section ****************/
 
 .interview {
-  height: 90%;
+  height: 1850px;
   width: 90%;
   margin-left: 5vw;
   margin-top: 5vh;
@@ -30,7 +107,7 @@ body {
 
 .textbox {
   width: 90%;
-  height: 25vh;
+  height: 200px;
   margin-left: 5vw;
   background-color: #b59079;
   border-style: ridge;
@@ -46,11 +123,11 @@ body {
 
 .userText {
   text-align: left;
-  font-size: 2.5vh;
-  padding-right: 2vw;
-  padding-left: 2vw;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  font-size: 2vh;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
   border-style: inset;
   border-color: #91715d
 }
@@ -59,19 +136,18 @@ body {
   background-color: #91715d;
 }
 
-#charText {
+.charText {
   text-align: center;
   overflow-wrap: break-word;
-  margin-right: 2.5vw;
-  font-size: 3.5vh;
+  margin-right: 50px;
+  font-size: 2.5vh;
 }
 
 /**************** Search Section ******************/
 .infotab {
-  display: none;
-  width: 90%;
-  height: 18vh;
-  margin-left: 5vw;
+  width: 1500px;
+  height: 175px;
+  margin-left: 175px;
   background-color: #b59079;
   border-style: ridge;
   border-color: #91715d;
@@ -79,12 +155,13 @@ body {
 }
 
 .infoButton {
-  width: 10%;
-  height: 4vh;
+  display: none;
+  width: 250px;
+  height: 50px;
   font-size: 1.5rem;
   background-color: #91715d;
   border: none;
-  margin-left: 45%;
+  margin-left: 625px;
 }
 
 .infoButton:hover {
@@ -93,23 +170,37 @@ body {
   border-style: solid;
 }
 
-#infoText {
+.returnButton {
+  width: 250px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: #91715d;
+  border: none;
+  margin-left: 625px;
+}
+
+.returnButton:hover {
+  background-color: #b59079;
+  border-color: #91715d;
+  border-style: solid;
+}
+
+.infoText {
   font-size: 1.2rem;
   overflow-wrap: break-word;
   margin-left: 5vw;
   margin-right: 5vw;
 }
 
-#infoTitle {
+.infoTitle {
   font-size: 1.4rem;
   overflow-wrap: break-word;
   text-algin: center;
 }
 
 .click {
-  width: 100%;
-  height: 800px;
-  margin-left: 8%;
+  width: 1850px;
+  height: 750px;
   display: flex;
   flex-direction: row;
 }
@@ -123,43 +214,111 @@ body {
   border-color: black;
   border-style: solid; */
 }
-
+/* office */
 #paintingTear {
-  margin-top: 38vh;
-  margin-left: 5vw;
+  margin-top: 250px;
   cursor: pointer;
   width: auto;
   height: auto;
 }
 
 #schedule {
-  margin-top: 62vh;
-  margin-left: 10vw;
+  margin-top: 430px;
+  margin-left: 200px;
   cursor: pointer;
   width: auto;
   height: auto;
 }
 
-#caroline {
-  margin-top: 28vh;
-  margin-left: 5vw;
-  cursor: pointer;
-}
-
 #glassCrack {
-  margin-top: 38vh;
-  margin-right: 2vw;
+  margin-top: 200px;
+  margin-right: 50px;
   cursor: pointer;
   width: auto;
   height: auto;
 }
 
 #note {
-  margin-top: 56vh;
-  margin-right: 15vw;
+  margin-top: 375px;
+  margin-right: 300px;
   cursor: pointer;
   width: auto;
   height: auto;
+}
+/* treasury */
+#handprint {
+  margin-top: 400px;
+  margin-left: 140px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#knuckles {
+  margin-top: 725px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#treasures {
+  margin-top: 161px;
+  margin-left: 10px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#glass {
+  margin-top: 625px;
+  margin-right: 175px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+/* bedroom */
+#phone {
+  margin-top: 425px;
+  margin-left: 300px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#wine {
+  margin-top: 285px;
+  margin-left: 275px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+#reminder {
+  margin-top: 390px;
+  margin-left: 300px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+/* characters */
+#caroline {
+  margin-top: 100px;
+  margin-left: 100px;
+  cursor: pointer;
+}
+
+#shane {
+  margin-top: 250px;
+  margin-right: 100px;
+  cursor: pointer;
+}
+
+#danielle {
+  margin-top: 150px;
+  margin-left: 100px;
+  cursor: pointer;
 }
 
 .objectButton {
@@ -171,16 +330,16 @@ body {
 /************* Decipher Note Section *************/
 
 .page {
-  height: 75vh;
-  width: 40vw;
+  height: 800px;
+  width: 750px;
   background-color: #FFFFFF;
   font-family: monospace;
   font-size: 1.3rem;
-  margin-left: 25vw;
-  margin-top: 10vh;
+  margin-left: 450px;
+  margin-top: 100px;
   padding-left: 2.5vw;
   padding-right: 2.5vw;
-  padding-top: 2.5vh;
+  padding-top: 1vh;
   padding-bottom: 5vh;
   text-align: left;
   line-height: 2;
@@ -190,7 +349,7 @@ body {
 #answers {
   font-size: 1.5rem;
   text-align: center;
-  margin: 5vh;
+  margin: 3vh;
   padding: 4vh;
   border-style: dotted;
   border-color: black;
@@ -201,11 +360,161 @@ body {
 }
 
 .noteButton {
-  width: 40%;
-  height: 4vh;
-  margin-left: 30%;
-  margin-top: 4%;
+  width: 250px;
+  height: 50px;
+  margin-left: 35%;
+  margin-top: 5px;
+  font-size: 1.3rem;
   border-style: solid;
   border-color: black;
   background-color: white;
 }
+
+/****************** schedule Sort *********************/
+.schedulePage {
+  height: 700px;
+  width: 750px;
+  background-color: #FFFFFF;
+  font-family: monospace;
+  font-size: 1.3rem;
+  margin-left: 450px;
+  margin-top: 25px;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-top: 1vh;
+  padding-bottom: 5vh;
+  text-align: left;
+  line-height: 3;
+  overflow: scroll;
+}
+
+.event {
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: medium;
+  padding-left: 10px;
+}
+
+.static {
+  background-color: lightgrey;
+  border: none;
+}
+
+.scheduleCheck {
+  background-color: white;
+  height: 50px;
+  width: 300px;
+  font-size: 1.3rem;
+  font-family: monospace;
+  border-style: solid;
+  border-color: grey;
+  border-width: medium;
+  margin-left: 225px;
+  margin-top: 50px;
+}
+
+.scheduleCheck:hover {
+  background-color: lightgrey;
+}
+/******************* Treasure Sort ********************/
+.miniTextbox {
+  width: 1500px;
+  height: 175px;
+  margin-left: 175px;
+  background-color: #b59079;
+  border-style: ridge;
+  border-color: #91715d;
+  border-width: 7px;
+}
+
+.miniButton {
+  width: 250px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: #91715d;
+  border: none;
+  margin-left: 600px;
+}
+
+.miniButton:hover {
+  background-color: #b59079;
+  border-color: #91715d;
+  border-style: solid;
+}
+
+.miniText {
+  font-size: 1.5rem;
+  overflow-wrap: break-word;
+}
+
+.position {
+  width: 1850px;
+  height: 750px;
+  margin-left: 75px;
+  display: flex;
+  flex-direction: row;
+}
+
+.row {
+  width: 500px;
+  height: 750px;
+  display: block;
+  text-align: center;
+
+}
+
+#greenNecklace {
+  visibility: hidden;
+  margin-top: 185px;
+  margin-left: 140px;
+  width: auto;
+  height: auto;
+}
+#redNecklace {
+  visibility: hidden;
+  margin-top: 324px;
+  margin-left: 80px;
+  width: auto;
+  height: auto;
+}
+#blueNecklace {
+  visibility: hidden;
+  margin-top: 50px;
+  margin-right: 225px;
+  width: auto;
+  height: auto;
+}
+#sword {
+  visibility: hidden;
+  margin-top: 415px;
+  margin-right: 50px;
+  width: auto;
+  height: auto;
+}
+
+#greenNecklace2 {
+  margin-left: 350px;
+  margin-top: 50px;
+  width: auto;
+  height: auto;
+}
+#redNecklace2 {
+  margin-left: 400px;
+  margin-top: 100px;
+  width: auto;
+  height: auto;
+}
+#blueNecklace2 {
+  margin-left: 350px;
+  margin-top: 100px;
+  width: auto;
+  height: auto;
+}
+#sword2 {
+  margin-left: 250px;
+  margin-top: 100px;
+  width: auto;
+  height: auto;
+}
+
+/******************* Glass Puzzle *********************/
