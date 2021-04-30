@@ -29,7 +29,6 @@ let carolineInt = false;
 let scheduleGame = false;
 let noteGame = false;
 let treasureGame = false;
-let glassGame = false;
 let phoneGame = false;
 let finalSuspect;
 let finalWeapon;
