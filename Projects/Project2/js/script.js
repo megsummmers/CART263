@@ -23,13 +23,13 @@ let scheduleScore = 6;
 let notepadStatus = "open";
 let fingerprintCode = 0;
 //final checklist
-let shaneInt = false;
-let danielleInt = false;
-let carolineInt = false;
-let scheduleGame = false;
-let noteGame = false;
-let treasureGame = false;
-let phoneGame = false;
+let shaneInt = true;
+let danielleInt = true;
+let carolineInt = true;
+let scheduleGame = true;
+let noteGame = true;
+let treasureGame = true;
+let phoneGame = true;
 let finalSuspect;
 let finalWeapon;
 
@@ -808,7 +808,7 @@ function dInterview3(){
     $("#danielleText").html("Well, no. You see the house is very big and I was caught up in my… drama so I wasn’t paying attention.");
   } else if (id === 3){
     $("#danielleText").html("I’m not sure if it was real but I could have sworn I heard someone walking around outside this window. No one should be out there at that time though.");
-  }  else if (id === 4){
+  } else if (id === 4){
     $("#danielleText").html("He was protective but never paranoid. To be completely honest, I was pacing around upstairs throughout the night. He might have been hearing me…");
   } else if (id === 5){
     $("#danielleText").html("Shane? No not really… Whenever we talk it feels as if he’s flirting with me so I only act nice because he’s Nicolas’s brother");
