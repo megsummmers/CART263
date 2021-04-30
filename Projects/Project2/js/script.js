@@ -1,13 +1,14 @@
 /**
-Title of Project
-Author Name
+Murder Mystery game
+Margaret Summers
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+A mystery game where you find clues and play minigames to
+try and find out which of the suspects murdered the victim!
 */
 
 "use strict";
 
+//variables
 let currentRoom = "travel";
 let roundNum = 1;
 let id = 1;
@@ -86,6 +87,7 @@ $(`#notepadClosed`).click(function(){
   $(`.closed`).css("display", "none");
 });
 
+//updates text on the notpad based on which room you came from
 function notepadUpdate(){
   if (currentRoom === "office"){
     $(`#note1`).html("Office Notes:");
@@ -119,6 +121,7 @@ function notepadUpdate(){
 }
 
 //------------- Change scene ---------------
+//changes between different scenes within a room
 function changeScene(currentScene){
   scene = currentScene;
   if (scene === "tutorial"){
@@ -316,16 +319,19 @@ $(`#danielle`).click(function(){
 });
 
 //-------------- Note decipher section --------------
+//changes colour when hovering over mixed words
 $(`.mixed`).one(`mouseover`, function(event){
   $(this).addClass(`found`);
 })
 
+//creates draggable words
 $(`.answer`).one(`mouseover`, function(event){
   $(this).draggable({
     revert: true
   });
 });
 
+//creates mixed words that are droppable
 $(`.mixed`).droppable({
   drop: function(event, ui){
     //get ids and text
@@ -353,8 +359,10 @@ $(`.mixed`).droppable({
 //-------------- Schedule Re-arrange ---------------
 $(`#sortEvents`).sortable();
 
+//check if the order of the schedule is right
 function checkOrder(){
   let userOrder = $(`#sortEvents`).sortable("toArray");
+  //goes through and compares the arrays
   for (let i = 0; i <= userOrder.length; i++){
     let userNum = userOrder[i];
     let solution = scheduleOrder[i];
@@ -384,6 +392,8 @@ $(`.sort`).one(`mouseover`, function(event){
   });
 });
 
+//if the treasure is dropped in the right place
+//show positioned image and add to the finished count
 $(`.answer`).droppable({
   drop: function(event, ui){
     //get ids and text
@@ -405,6 +415,9 @@ $(`.answer`).droppable({
 });
 
 //---------------- Glass Puzzle -------------------
+//lets pieces be draggable
+//when they are placed in a specific location, draggable is disabled
+//to show that they are in the right place
 $(`.piece`).draggable({
   grid: [10, 10], //100px 100px grid
   stop: function(){
@@ -433,36 +446,31 @@ $(`#fingerprint1`).hover(function(){
 }, function(){
   $(this).stop(true).fadeTo(500, 0);
 });
-
 $(`#fingerprint2`).hover(function(){
   $(this).stop(true).fadeTo(1000, 1);
 }, function(){
   $(this).stop(true).fadeTo(500, 0);
 });
-
 $(`#fingerprint3`).hover(function(){
   $(this).stop(true).fadeTo(1000, 1);
 }, function(){
   $(this).stop(true).fadeTo(500, 0);
 });
-
 $(`#fingerprint4`).hover(function(){
   $(this).stop(true).fadeTo(1000, 1);
 }, function(){
   $(this).stop(true).fadeTo(500, 0);
 });
-
 $(`#fingerprint5`).hover(function(){
   $(this).stop(true).fadeTo(1000, 1);
 }, function(){
   $(this).stop(true).fadeTo(500, 0);
 });
 
-//passcode
+//click to input passcode
 $(`#fingerprint4`).click(function(){
   fingerprintCode = 1;
 });
-
 $(`#fingerprint3`).click(function(){
   if (fingerprintCode === 1){
     fingerprintCode = 2;
@@ -470,7 +478,6 @@ $(`#fingerprint3`).click(function(){
     fingerprintCode = 0;
   }
 });
-
 $(`#fingerprint2`).click(function(){
   if (fingerprintCode === 2){
     fingerprintCode = 3;
@@ -478,7 +485,6 @@ $(`#fingerprint2`).click(function(){
     fingerprintCode = 0;
   }
 });
-
 $(`#fingerprint1`).click(function(){
   if (fingerprintCode === 3){
     fingerprintCode = 4;
@@ -486,7 +492,6 @@ $(`#fingerprint1`).click(function(){
     fingerprintCode = 0;
   }
 });
-
 $(`#fingerprint5`).click(function(){
   if (fingerprintCode === 4){
     $(`.locked`).css("display", "none");
@@ -502,18 +507,17 @@ $(`#fingerprint5`).click(function(){
   }
 });
 
+//click icons to see messages
 $(`#iconC`).click(function(){
   $(`#textsC`).css("display", "block");
   $(`#textsD`).css("display", "none");
   $(`#textsS`).css("display", "none");
 });
-
 $(`#iconD`).click(function(){
   $(`#textsC`).css("display", "none");
   $(`#textsD`).css("display", "block");
   $(`#textsS`).css("display", "none");
 });
-
 $(`#iconS`).click(function(){
   $(`#textsC`).css("display", "none");
   $(`#textsD`).css("display", "none");
@@ -522,6 +526,7 @@ $(`#iconS`).click(function(){
 
 //-------------- Interview section ----------------
 //CAROLINE
+//if the user click the first button
 $("#carolineQ1").click(function(){
   if (roundNum === 1){
     cInterview1();
@@ -534,6 +539,7 @@ $("#carolineQ1").click(function(){
     $(`.search`).css("display", "block");
   }
 });
+//second button adds 1 to ID to get a diferent set of questions
 $("#carolineQ2").click(function(){
   id += 1;
   if (roundNum === 1){
@@ -544,11 +550,13 @@ $("#carolineQ2").click(function(){
     cInterview3();
   }
 });
+//thirs button only works for first time
 $("#carolineQ3").click(function(){
   id = 3;
   cInterview1();
 });
 
+//Different rounds of Q&A
 function cInterview1(){
   if (id === 1){
     $("#carolineText").html("I'm his assistant, Caroline Wheeler.");
@@ -793,6 +801,7 @@ function dInterview3(){
 }
 
 //----------------- ENDING --------------
+//checks if user has finsihed all the games
 function progressCheck(){
   if ( shaneInt === true &&
   danielleInt === true &&
@@ -808,6 +817,7 @@ function progressCheck(){
   }
 }
 
+//navigates the ending screens
 function changeEndScene(endScene){
   if (endScene === 'caroline'){
     $(`.endTut`).css("display", "none");
@@ -827,6 +837,7 @@ function changeEndScene(endScene){
   }
 }
 
+//final select click
 $(`#carolineF`).click(function(){
   $(`#finalSuspect`).attr("src", "css/images/carolineSuspect.png");
   $(`#finalSuspect`).css("border", "4px solid white");
@@ -853,6 +864,7 @@ $(`#knucklesF`).click(function(){
   finalWeapon = "knuckles";
 });
 
+//final cutscene is based on who the user chose as the murderer
 function finalCutscene(){
   let round = 1;
   $(`.cutscene`).css("display", "block");
@@ -860,11 +872,15 @@ function finalCutscene(){
   if (finalSuspect === "caroline"){
     carolineEnd(round);
     round += 1;
+    //changes characters speaking every 4.5 secs to create the cutscene
     setInterval(function(){
       carolineEnd(round);
       if (round === 12){
         $(`.cutscene`).css("display", "none");
         $(`.ending`).css("display", "block");
+        //different ending based on weapon choices
+        //neutral = wrong weapon
+        //win = right weapon
         if (finalWeapon === "glass"){
           $(`#win`).css("display", "block");
         } else if (finalWeapon === "knuckles"){
@@ -906,10 +922,13 @@ function finalCutscene(){
   }
 }
 
+//For lose endings, in case the user wants to know who did it
+//without playing through it again
 function showEnd(){
   $(`#trueEnd`).html("It's was actually Caroline who killed her boss after he pushed her to her limits for the last time.<br>Her plan was to frame Shane by tampering with the victim's note and stealing his treasure collection but not his money.<br>That way Danielle, who she felt bad for, would sitll have funds for herself. She was able to sneak up on the victim because she had a key to the back door, but the victim over powered her so she was forced to fight.<br> She ended up using the glass shard to kill him because he knocked the knuckles out of her hands.");
 }
 
+//cutscene functions
 function carolineEnd(round){
   if (round === 1){
     $(`#cutsceneImg`).attr("src", "css/images/carolinehalf.png");
