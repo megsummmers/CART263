@@ -266,6 +266,7 @@ $(`#glass`).click(function(){
   $(`#infotab2`).css("display", "block");
   $(`#infoButton2`).css("display", "block");
   $(`#returnButton2`).css("display", "none");
+  $(`#glassButton`).css("display", "block");
   $(`#infoTitle2`).html("Some broken glass");
   $(`#infoText2`).html("Looks like the murderer cut themselves while trying to get into this, Better double check that the shards match up");
   $(`#infoButton2`).attr("onclick", 'changeScene("glass")');
@@ -462,7 +463,6 @@ $(`.piece`).draggable({
       $(`#glasstext1`).html("<strong>Looks like one of the big shards is missing</strong>");
       $(`#glasstext2`).css("display", "none");
       $(`#glassButton`).css("display", "block");
-      glassGame = true;
     }
   }
 });
@@ -830,7 +830,6 @@ function progressCheck(){
   scheduleGame === true &&
   noteGame === true &&
   treasureGame === true &&
-  glassGame === true &&
   phoneGame === true) {
     $(`.guessPhase`).css("display", "block");
   } else {
