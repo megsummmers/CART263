@@ -136,12 +136,14 @@ function changeScene(currentScene){
   } else if (scene === "office"){
     $(`.decipher`).css("display", "none");
     $(`.schedule`).css("display", "none");
+    $(`.interview`).css("display", "none");
     $(`.search`).css("display", "block");
     $(`#infotab`).css("display", "none");
     $(`#infoButton`).css("display", "none");
     $(`body`).css('background-image', 'url("css/images/office.png")');
   } else if (scene === "bedroom"){
     $(`.phone`).css("display", "none");
+    $(`.interview`).css("display", "none");
     $(`.search`).css("display", "block");
     $(`#infotab`).css("display", "none");
     $(`#infoButton`).css("display", "none");
@@ -165,6 +167,7 @@ function changeScene(currentScene){
   } else if (scene === "treasure"){
     $(`.treasureSort`).css("display", "none");
     $(`.glassPuzzle`).css("display", "none");
+    $(`.interview`).css("display", "none");
     $(`.search`).css("display", "block");
     $(`#infotab`).css("display", "none");
     $(`#infoButton`).css("display", "none");
@@ -183,7 +186,11 @@ function changeScene(currentScene){
     $(`.search`).css("display", "none");
     $(`.phone`).css("display", "block");
     $(`.interview`).css("display", "none");
-    $(`body`).css('background-image', 'url("css/images/phone-bg-lock.jpg")');
+    if (phoneGame === true){
+      $(`body`).css('background-image', 'url("css/images/phone-bg.jpg")');
+    } else {
+        $(`body`).css('background-image', 'url("css/images/phone-bg-lock.jpg")');
+    }
   }
 }
 
@@ -194,7 +201,7 @@ $(`#glassCrack`).click(function(){
   $(`#infoButton1`).css("display", "none");
   $(`#returnButton1`).css("display", "block");
   $(`#infoTitle1`).html("A cracked hole in the glass");
-  $(`#infoText1`).html("A broken hole in the glass that seems to have been brokwn in a fight.");
+  $(`#infoText1`).html("A broken hole in the glass that seems to have been broken in order to get whatever was behind it.");
   scene = "none";
 });
 
@@ -203,7 +210,7 @@ $(`#schedule`).click(function(){
   $(`#infoButton1`).css("display", "block");
   $(`#returnButton1`).css("display", "none");
   $(`#infoTitle1`).html("The victim's schedule");
-  $(`#infoText1`).html("Looks like the victim's schedule for the day of his death. Doesn't look like it was made for him though");
+  $(`#infoText1`).html("Looks like the victim's schedule for the day of his death. Better examine it to get a better idae of his day");
   $(`#infoButton1`).attr("onclick", 'changeScene("schedule")');
 });
 
@@ -212,7 +219,7 @@ $(`#paintingTear`).click(function(){
   $(`#infoButton1`).css("display", "none");
   $(`#returnButton1`).css("display", "block");
   $(`#infoTitle1`).html("Scratches in the painting");
-  $(`#infoText1`).html("Someone must have gotten angry with a knife in hand... or they just really don't like owls");
+  $(`#infoText1`).html("Someone must have gotten into a fight in here... or they just really don't like owls");
   scene = "none";
 });
 
@@ -242,7 +249,7 @@ $(`#knuckles`).click(function(){
   $(`#infoButton2`).css("display", "none");
   $(`#returnButton2`).css("display", "block");
   $(`#infoTitle2`).html("A pair of gold brass knuckles");
-  $(`#infoText2`).html("Could have been used to kill the victim although they look pretty decorative.");
+  $(`#infoText2`).html("Could have been used to kill the victim, they look decorative but there's a bunch of dents on them.");
   scene = "none";
 });
 
@@ -300,6 +307,13 @@ $(`#caroline`).click(function(){
   $(`#infoTitle1`).html("Caroline Wheeler");
   $(`#infoText1`).html("Our first suspect. She's the victim's assistant");
   $(`#infoButton1`).attr("onclick", 'changeScene("interview")');
+  $(`#carolineText`).html('<strong>"Hello there..."</strong>')
+  $(`#carolineQ1`).css("display", "block");
+  $(`#carolineQ2`).css("display", "block");
+  $(`#carolineQ3`).css("display", "block");
+  $(`#carolineQ1`).html("Who were you to the victim?");
+  $(`#carolineQ2`).html("Where were you on the night of the murder?");
+  $(`#carolineQ3`).html("How are you today?");
 });
 $(`#shane`).click(function(){
   $(`#infotab2`).css("display", "block");
@@ -308,6 +322,13 @@ $(`#shane`).click(function(){
   $(`#infoTitle2`).html("Shane Harper");
   $(`#infoText2`).html("The second suspect. The victim's rowdy brother");
   $(`#infoButton2`).attr("onclick", 'changeScene("interview")');
+  $(`#shaneText`).html('<strong>"Hey, you the detective or something?"</strong>');
+  $(`#shaneQ1`).css("display", "block");
+  $(`#shaneQ2`).css("display", "block");
+  $(`#shaneQ3`).css("display", "block");
+  $(`#shaneQ1`).html("Who were you to the victim?");
+  $(`#shaneQ2`).html("Where were you the night of the murder?");
+  $(`#shaneQ3`).html("What are you doing in here, this is a crime scene?");
 });
 $(`#danielle`).click(function(){
   $(`#infotab3`).css("display", "block");
@@ -316,6 +337,13 @@ $(`#danielle`).click(function(){
   $(`#infoTitle3`).html("Danielle Harper");
   $(`#infoText3`).html("The final suspect. She's the victim's wife");
   $(`#infoButton3`).attr("onclick", 'changeScene("interview")');
+  $(`#danielleText`).html('<strong>"Oh, Hello. You must be the detective on the case"</strong>');
+  $(`#danielleQ1`).css("display", "block");
+  $(`#danielleQ2`).css("display", "block");
+  $(`#danielleQ3`).css("display", "block");
+  $(`#danielleQ1`).html("Where were you the night of the murder?");
+  $(`#danielleQ2`).html("Who were you to the victim?");
+  $(`#danielleQ3`).html("You look very tired, were you up late?");
 });
 
 //-------------- Note decipher section --------------
@@ -535,8 +563,8 @@ $("#carolineQ1").click(function(){
   } else if (roundNum === 3){
     cInterview3();
   } else if (roundNum === 4){
-    $(`.interview`).css("display", "none");
-    $(`.search`).css("display", "block");
+    roundNum = 1;
+    changeScene("office");
   }
 });
 //second button adds 1 to ID to get a diferent set of questions
@@ -584,8 +612,8 @@ function cInterview2(){
     $(`#carolineQ1`).html("Would you say Mr. Harper was a paranoid person?");
     $(`#carolineQ2`).html("So do you always know where he is?");
   } else if (id === 3){
-    $("#carolineText").html("I got to the house 8'o clock, The police were already here when I got here.");
-    $(`#carolineQ1`).html("Were you and Mr. Harper close?");
+    $("#carolineText").html("I got to the house at half past 8'o clock, The police were already here when I got here.");
+    $(`#carolineQ1`).html("So do you always know where he is?");
     $(`#carolineQ2`).html("Did Mr. Harper have any enemies?");
   } else if (id === 4){
     $("#carolineText").html("I'm his assistant. I manage his schedule and organize his paperwork");
@@ -606,18 +634,15 @@ function cInterview3(){
   } else if (id === 3){
     $("#carolineText").html("No, he's a busy man. He did a lot of random things without informing me.");
   } else if (id === 4){
-    $("#carolineText").html("No not really, our relationship was strictly professional.");
-  }else if (id === 5){
     $("#carolineText").html("He was a lawyer so he made a lot of people mad... Although, I wouldn't say mad enough to kill him");
-  } else if (id === 6){
+  } else if (id === 5){
     $("#carolineText").html("Well... It wasn't a bad job but Mr. Harper kept me very busy. I was always very tired...");
   }
   $(`#carolineQ1`).html("Thank you for your time.");
   $(`#carolineQ2`).css("display", "none");
   $(`#carolineQ3`).css("display", "none");
-  roundNum = 1;
+  roundNum += 1;
   carolineInt = true;
-  changeScene("office");
 }
 //SHANE
 $("#shaneQ1").click(function(){
@@ -628,8 +653,8 @@ $("#shaneQ1").click(function(){
   } else if (roundNum === 3){
     sInterview3();
   } else if (roundNum === 4){
-    $(`.interview`).css("display", "none");
-    $(`.search`).css("display", "block");
+    roundNum = 1;
+    changeScene("treasure");
   }
 });
 $("#shaneQ2").click(function(){
@@ -705,9 +730,8 @@ function sInterview3(){
   $(`#shaneQ1`).html("Thank you for your time.");
   $(`#shaneQ2`).css("display", "none");
   $(`#shaneQ3`).css("display", "none");
-  roundNum = 1;
+  roundNum += 1;
   shaneInt = true;
-  changeScene("treasure");
 }
 //DANIELLE
 $("#danielleQ1").click(function(){
@@ -718,10 +742,8 @@ $("#danielleQ1").click(function(){
   } else if (roundNum === 3){
     dInterview3();
   } else if (roundNum === 4){
-    $(`.dInterview`).css("display", "none");
-    $(`.bedroomSearch`).css("display", "block");
-    $(`#infotab`).css("display", "none");
-    $(`#infoButton`).css("display", "none");
+    roundNum = 1;
+    changeScene("bedroom");
   }
 });
 $("#danielleQ2").click(function(){
@@ -758,7 +780,7 @@ function dInterview1(){
 }
 function dInterview2(){
   if (id === 1){
-    $("#danielleText").html("Around 7 I believe? That is the last time I can remember before the chaos started");
+    $("#danielleText").html("Around 8 I believe? That is the last time I can remember before the chaos started");
     $(`#danielleQ1`).html("Did you see or hear anyone enter the house before then?");
     $(`#danielleQ2`).html("Did you hear any loud noises throughout the night? Like fighting or glass breaking?");
   } else if (id === 2){
@@ -795,9 +817,8 @@ function dInterview3(){
   $(`#danielleQ1`).html("Thank you for your time.");
   $(`#danielleQ2`).css("display", "none");
   $(`#danielleQ3`).css("display", "none");
-  roundNum = 1;
+  roundNum += 1;
   danielleInt = true;
-  changeScene("bedroom");
 }
 
 //----------------- ENDING --------------

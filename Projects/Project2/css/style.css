@@ -165,7 +165,7 @@ body {
   text-align: center;
   overflow-wrap: break-word;
   margin-right: 50px;
-  font-size: 2.5vh;
+  font-size: 2.6vh;
 }
 
 /**************** Search Section ******************/
@@ -488,7 +488,7 @@ body {
 }
 
 .row {
-  width: 425px;
+  width: 440px;
   height: 750px;
   display: block;
   text-align: center;
@@ -497,53 +497,54 @@ body {
 
 #greenNecklace {
   visibility: hidden;
-  margin-top: 135px;
-  margin-left: 75px;
+  margin-top: 140px;
+  margin-left: 70px;
   width: auto;
   height: auto;
 }
 #redNecklace {
   visibility: hidden;
-  margin-top: 260px;
+  margin-top: 275px;
   margin-left: 50px;
   width: auto;
   height: auto;
 }
 #blueNecklace {
   visibility: hidden;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-right: 550px;
   width: auto;
   height: auto;
 }
 #sword {
   visibility: hidden;
-  margin-top: 350px;
+  margin-top: 355px;
+  margin-right: 55px;
   width: auto;
   height: auto;
 }
 
 #greenNecklace2 {
-  margin-left: 350px;
+  margin-left: 275px;
   margin-top: 50px;
   width: auto;
   height: auto;
 }
 #redNecklace2 {
-  margin-left: 400px;
-  margin-top: 100px;
+  margin-left: 325px;
+  margin-top: 75px;
   width: auto;
   height: auto;
 }
 #blueNecklace2 {
-  margin-left: 350px;
-  margin-top: 100px;
+  margin-left: 300px;
+  margin-top: 75px;
   width: auto;
   height: auto;
 }
 #sword2 {
-  margin-left: 250px;
-  margin-top: 100px;
+  margin-left: 200px;
+  margin-top: 75px;
   width: auto;
   height: auto;
 }
