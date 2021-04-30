@@ -132,6 +132,7 @@ function changeScene(currentScene){
     $(`.interview`).css("display", "block");
   } else if (scene === "office"){
     $(`.decipher`).css("display", "none");
+    $(`.schedule`).css("display", "none");
     $(`.search`).css("display", "block");
     $(`#infotab`).css("display", "none");
     $(`#infoButton`).css("display", "none");
@@ -158,7 +159,6 @@ function changeScene(currentScene){
     $(`.search`).css("display", "none");
     $(`.schedule`).css("display", "block");
     $(`.interview`).css("display", "none");
-    $(`#main`).css("display", "block");
   } else if (scene === "treasure"){
     $(`.treasureSort`).css("display", "none");
     $(`.glassPuzzle`).css("display", "none");
@@ -175,7 +175,7 @@ function changeScene(currentScene){
     $(`.search`).css("display", "none");
     $(`.glassPuzzle`).css("display", "block");
     $(`.interview`).css("display", "none");
-    $(`body`).css('background-image', 'url("css/images/glass-puzzle.jpg")');
+    $(`body`).css('background-image', 'url("css/images/glass-puzzle.png")');
   } else if (scene === "phone"){
     $(`.search`).css("display", "none");
     $(`.phone`).css("display", "block");
@@ -804,7 +804,7 @@ function progressCheck(){
   phoneGame === true) {
     $(`.guessPhase`).css("display", "block");
   } else {
-    alert("You haven't found all te clues yet!");
+    alert("You haven't found all the clues yet!");
   }
 }
 

@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <!--- Notepad on travel scene -->
     <div class="notes" style="display: none">
       <p id="note1">Welcome detective!</p>
       <p id="note2">This is your notepad where you'll get instructions</p>
@@ -58,6 +59,7 @@
           <button class="noteButton" onclick="changeScene('tutorial')">Begin Investigation</button>
         </section>
       </div>
+      <!--- Base travel room -->
       <div class="travelscene" style="display: none">
         <div class="third">
           <button class="officeButton"onclick="changeRoom('office')">Go to<br>The Office</button>
@@ -129,6 +131,7 @@
       <div class="decipher" style="display: none;">
         <div class="miniTextbox" id="decipherTextbox"style="display: none">
           <p class="miniText" id="deciphertext1"><strong>Looks like the victim was hearing footsteps everywhere. Was it paranoia or were there actually people there?</strong></p>
+          <p class="miniText" id="deciphertext1">The handwriting of the last part of the letter is different, it might have been tampered with</p>
           <button class="miniButton" id="decipherButton" onclick='changeScene("office")'>Return to room</button>
         </div>
         <div class="page" id="tutorial">
@@ -152,7 +155,7 @@
             They are <span class="mixed" id="word6">bvaoe</span> me, outside my <span class="mixed" id="word7">rodo</span>, even outside my <span class="mixed" id="word8">dwinwo</span>...
             I don't know what else to do so if <span class="mixed" id="word9">emeonso</span> finds this <span class="mixed" id="word10">oetn</span> and I'm no longer alive...
           </p>
-          <p>Give all my wealth to my brother... he's the only one I can trust</p>
+          <p id="tampered">Give all my wealth to my brother... he's the only one I can trust</p>
           <h3>Signed, Nicolas Harper</h3>
           <section id="answers">
             <strong>Deciphered Words</strong> <br>
@@ -162,6 +165,7 @@
           </section>
         </div>
       </div>
+      <!--- Re-arrange victims schedule -->
       <div class="schedule" style="display: none">
         <div class="miniTextbox" id="scheduleTextbox">
           <p class="miniText" id="scheduletext1"><strong>Sort the events on the dropped schedule</strong></p>
@@ -252,6 +256,7 @@
             <img src="css/images/green-necklace.png"
             alt="Gold sword"
             id="greenNecklace" class="answer">
+            <br>
             <img src="css/images/red-necklace.png"
             alt="Gold sword"
             id="redNecklace" class="answer">
@@ -280,27 +285,27 @@
           </div>
         </div>
       </div>
-      <!--- Glass shard sort puzzle -->
+      <!--- Glass shard puzzle -->
       <div class="glassPuzzle" style="display: none">
         <div class="miniTextbox">
-          <p class="miniText" id="glasstext1"><strong>Piece together the broken glass to create the square</strong></p>
-          <p class="miniText" id="glasstext2">Make sure that all the piece line up<br>Pay close attention to the blood stain</p>
+          <p class="miniText" id="glasstext1"><strong>Piece together the broken glass to create the square and find any missing shards</strong></p>
+          <p class="miniText" id="glasstext2">Make sure that all the piece line up, they will no longer be draggable when placed correctly</p>
           <button class="miniButton" id="glassButton" style="display: none" onclick='changeScene("treasure")'>Return to room</button>
         </div>
         <div class="shards">
-          <img src="css/images/shard1.png" alt="glass shard" id="piece1" class="piece" solutionX="80" solutionY="207">
-          <img src="css/images/shard2.png" alt="glass shard" id="piece2" class="piece" solutionX="105" solutionY="209">
-          <img src="css/images/shard3.png" alt="glass shard" id="piece3" class="piece" solutionX="252" solutionY="203">
-          <img src="css/images/shard4.png" alt="glass shard" id="piece4" class="piece" solutionX="482" solutionY="196">
-          <img src="css/images/shard5.png" alt="glass shard" id="piece5" class="piece" solutionX="844" solutionY="213">
-          <img src="css/images/shard6.png" alt="glass shard" id="piece6" class="piece" solutionX="356" solutionY="366">
-          <img src="css/images/shard7.png" alt="glass shard" id="piece7" class="piece" solutionX="501" solutionY="362">
-          <img src="css/images/shard8.png" alt="glass shard" id="piece8" class="piece" solutionX="799" solutionY="295">
-          <img src="css/images/shard9.png" alt="glass shard" id="piece9" class="piece" solutionX="87" solutionY="715">
-          <img src="css/images/shard10.png" alt="glass shard" id="piece10" class="piece" solutionX="161" solutionY="626">
-          <img src="css/images/shard11.png" alt="glass shard" id="piece11" class="piece" solutionX="337" solutionY="554">
-          <img src="css/images/shard12.png" alt="glass shard" id="piece12" class="piece" solutionX="327" solutionY="743">
-          <img src="css/images/shard13.png" alt="glass shard" id="piece13" class="piece" solutionX="692" solutionY="626">
+          <img src="css/images/shard1.png" alt="glass shard" id="piece1" class="piece" solutionX="68" solutionY="277">
+          <img src="css/images/shard4.png" alt="glass shard" id="piece4" class="piece" solutionX="358" solutionY="281">
+          <img src="css/images/shard9.png" alt="glass shard" id="piece9" class="piece" solutionX="108" solutionY="588">
+          <img src="css/images/shard2.png" alt="glass shard" id="piece2" class="piece" solutionX="92" solutionY="286">
+          <img src="css/images/shard5.png" alt="glass shard" id="piece5" class="piece" solutionX="622" solutionY="269">
+          <img src="css/images/shard10.png" alt="glass shard" id="piece10" class="piece" solutionX="67" solutionY="659">
+          <img src="css/images/shard7.png" alt="glass shard" id="piece7" class="piece" solutionX="382" solutionY="400">
+          <img src="css/images/shard13.png" alt="glass shard" id="piece13" class="piece" solutionX="512" solutionY="585">
+          <img src="css/images/shard8.png" alt="glass shard" id="piece8" class="piece" solutionX="267" solutionY="394">
+          <img src="css/images/shard11.png" alt="glass shard" id="piece11" class="piece" solutionX="238" solutionY="673">
+          <img src="css/images/shard3.png" alt="glass shard" id="piece3" class="piece" solutionX="175" solutionY="271">
+          <img src="css/images/shard12.png" alt="glass shard" id="piece12" class="piece" solutionX="278" solutionY="524">
+          <img src="css/images/shard6.png" alt="glass shard" id="piece6" class="piece" solutionX="588" solutionY="346">
         </div>
       </div>
     </div>
@@ -410,12 +415,14 @@
     <!--- Final phase of the game -->
     <div class="guessPhase" style="display: none">
       <div class="endBox">
+        <!--- Title page -->
         <div class="endTut">
           <p class="endTitle"><strong>Time to string togther the story</strong></p>
           <p class="endText">We will now be going through the night of the murder.<br>
             In the end you will make a final decision on a murder weapon and a culprit</p>
           <button class="endButton" onclick="changeEndScene('caroline')">Go to alibis</button>
         </div>
+        <!--- Caroline's story -->
         <div class="cStory" style="display: none">
           <img src="css/images/caroline.png"
           alt="Caroline art"
@@ -455,6 +462,7 @@
             <button class="endButton" onclick="changeEndScene('shane')">Next</button>
           </div>
         </div>
+        <!--- Shane's story -->
         <div class="sStory" style="display: none">
           <img src="css/images/shane.png"
           alt="Shane art"
@@ -494,6 +502,7 @@
             <button class="endButton" onclick="changeEndScene('danielle')">Next</button>
           </div>
         </div>
+        <!--- Danielle's Story -->
         <div class="dStory" style="display: none">
           <img src="css/images/danielle.png"
           alt="Danielle art"
@@ -533,9 +542,11 @@
             <button class="endButton" onclick="changeEndScene('events')">Next</button>
           </div>
         </div>
+        <!--- Go through the morning fight and victim's final moments -->
         <div class="events" style="display: none">
           <p class="endTitle"><strong>Before you decide, let go over the major events,</strong></p>
           <div class="eventsDiv">
+            <!--- morning fight -->
             <div class="eventRow">
               <p class="endText"><strong>The morning fight</strong></p>
               <form class="alibis" action="#" method="post">
@@ -577,6 +588,7 @@
                 </fieldset>
               </form>
             </div>
+            <!--- victims final moments -->
             <div class="eventRow">
               <p class="endText"><strong>The victims paranoia</strong></p>
               <form class="alibis" action="#" method="post">
@@ -621,6 +633,7 @@
           </div>
           <button class="endButton" onclick="changeEndScene('final')">Next</button>
         </div>
+        <!--- User selects suspect and weapon -->
         <div class="finalChoice" style="display: none">
           <p class="endTitle"><strong>Make your final decision!</strong></p>
           <div class="eventsDiv">
@@ -663,6 +676,7 @@
         </div>
       </div>
     </div>
+    <!--- End cutscene -->
     <div class="cutscene" style="display: none">
       <div class="interview">
         <section class="image">
@@ -677,6 +691,7 @@
         </section>
       </div>
     </div>
+    <!--- End card w/ story explanation -->
     <div class="ending" style="display: none">
       <div class="endBox">
         <section id="win" style="display: none">

@@ -125,6 +125,7 @@ body {
   width: 90%;
   margin-left: 5vw;
   margin-top: 5vh;
+  text-align: center;
 }
 
 .textbox {
@@ -396,6 +397,10 @@ body {
   background-color: white;
 }
 
+#tampered {
+  font-family: sans-serif;
+}
+
 /****************** schedule Sort *********************/
 .schedulePage {
   height: 700px;
@@ -451,7 +456,6 @@ body {
   border-style: ridge;
   border-color: #91715d;
   border-width: 7px;
-  text-align: center;
 }
 
 .miniButton {
@@ -460,7 +464,7 @@ body {
   font-size: 1.5rem;
   background-color: #91715d;
   border: none;
-  margin-left: 600px;
+  margin-left: 500px;
 }
 
 .miniButton:hover {
@@ -472,6 +476,7 @@ body {
 .miniText {
   font-size: 1.2rem;
   overflow-wrap: break-word;
+  text-align: center;
 }
 
 .position {
@@ -483,7 +488,7 @@ body {
 }
 
 .row {
-  width: 500px;
+  width: 425px;
   height: 750px;
   display: block;
   text-align: center;
@@ -492,29 +497,28 @@ body {
 
 #greenNecklace {
   visibility: hidden;
-  margin-top: 185px;
-  margin-left: 140px;
+  margin-top: 135px;
+  margin-left: 75px;
   width: auto;
   height: auto;
 }
 #redNecklace {
   visibility: hidden;
-  margin-top: 324px;
-  margin-left: 80px;
+  margin-top: 260px;
+  margin-left: 50px;
   width: auto;
   height: auto;
 }
 #blueNecklace {
   visibility: hidden;
-  margin-top: 50px;
-  margin-right: 225px;
+  margin-top: 10px;
+  margin-right: 550px;
   width: auto;
   height: auto;
 }
 #sword {
   visibility: hidden;
-  margin-top: 415px;
-  margin-right: 50px;
+  margin-top: 350px;
   width: auto;
   height: auto;
 }
@@ -543,6 +547,8 @@ body {
   width: auto;
   height: auto;
 }
+
+/******************* glass puzzle *********************/
 
 /******************* phone puzzle *********************/
 
