@@ -719,7 +719,7 @@ function sInterview3(){
   } else if (id === 2){
     $("#shaneText").html("I came in the morning to talk to him but he kicked me out. I was angry so I stayed away from the jerk for the rest of the day");
   } else if (id === 3){
-    $("#shaneText").html("Not all of them but a few are a goldmine. I’ve seen people offer millions for Nic to sell em. He never got the chance tho");
+    $("#shaneText").html("Not all of them but a few are a goldmine. I’ve been asking him for one for a while! Especially a fan of those gold knuckles");
   } else if (id === 4){
     $("#shaneText").html("Look I love Nic, but he’s not the nicest guy. Gets territorial like a damn dog so it’s real easy to get him angry");
   }else if (id === 5){
