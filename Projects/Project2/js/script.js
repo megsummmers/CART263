@@ -784,7 +784,7 @@ function dInterview2(){
     $(`#danielleQ1`).html("Did you see or hear anyone enter the house before then?");
     $(`#danielleQ2`).html("Did you hear any loud noises throughout the night? Like fighting or glass breaking?");
   } else if (id === 2){
-    $("#danielleText").html("Um, It’s a little embarrassing but I was drinking and watching my drama on Nicholas’s laptop");
+    $("#danielleText").html("Um, It’s a little embarrassing but I was drinking and watching my drama on Nicholas’s phone");
     $(`#danielleQ1`).html("Did you hear any loud noises throughout the night? Like fighting or glass breaking?");
     $(`#danielleQ2`).html("Did you see anything unusual during the night?");
   } else if (id === 3){
@@ -808,7 +808,7 @@ function dInterview3(){
   } else if (id === 2){
     $("#danielleText").html("Well, no. You see the house is very big and I was caught up in my… drama so I wasn’t paying attention.");
   } else if (id === 3){
-    $("#danielleText").html("I’m not sure if it was real but I could have sworn I heard someone walking around outside this window. No one should be out there at that time.");
+    $("#danielleText").html("I’m not sure if it was real but I could have sworn I heard someone walking around outside this window. No one should be out there at that time though.");
   }  else if (id === 4){
     $("#danielleText").html("He was protective but never paranoid. To be completely honest, I was pacing around upstairs throughout the night. He might have been hearing me…");
   } else if (id === 5){
@@ -832,6 +832,9 @@ function progressCheck(){
   treasureGame === true &&
   phoneGame === true) {
     $(`.guessPhase`).css("display", "block");
+    $(`.travelscene`).css("display", "none");
+    $(`.notepad`).css("display", "none");
+    $(`.notes`).css("display", "none");
   } else {
     alert("You haven't found all the clues yet!");
   }
