@@ -15,17 +15,28 @@
   </head>
 
   <body>
+    <div class="notes" style="display: none">
+      <p id="note1">Welcome detective!</p>
+      <p id="note2">This is your notepad where you'll get instructions</p>
+      <p id="note3">and hints after each room!</p>
+      <p id="note4">Each room will have 1 suspect to interview,</p>
+      <p id="note5">1-2 minigames to play and extra clues to click.</p>
+      <p id="note6">Start off in the office and then make your way</p>
+      <p id="note7">through the other rooms until you finish everything</p>
+      <p id="note8"> </p>
+      <button id="noteButton" onclick="progressCheck()" style="display: none">Go to Decision Phase</button>
+    </div>
     <div class="notepad" style="display: none">
       <div class="open">
         <img src="css/images/notepad.png"
         alt="Notepad with hints"
-        width="647" height="1000"
+        width="420" height="650">
         id="notepadOpen">
       </div>
       <div class="closed" style="display: none">
         <img src="css/images/notepad-top.png"
         alt="Notepad with hints"
-        width="647" height="127"
+        width="420" height="650"
         id="notepadClosed">
       </div>
     </div>
@@ -36,10 +47,10 @@
         <section class="page">
           <h2>Instructions:</h2>
           <p>
-            Your job is to search the scene with your mouse to find clues to Mr. Harper's murder.
+            Your job is to search the scene to find clues to Mr. Harper's murder.
             If your cursor changes then you can click on the item and investigate it.
             If there is a button labeled "investigate" in the description
-            then you can play a mini game to look into that object and obtain clues.
+            then you can investigate further through a mini game to look into that object and obtain clues.
           </p>
           <p id="example"><u>Hover over this to see the cursor change.</u></p>
           <p>Go find that murderer and good luck detective!</p>
@@ -103,7 +114,7 @@
         <section class="image">
           <img src="css/images/carolinehalf.png"
           alt="Assistant image"
-          width="564" height:"650">
+          width="441" height:"550">
         </section>
         <section class="textbox">
           <p id="charText"><strong>"Hello there..."</strong></p>
@@ -154,18 +165,19 @@
       <div class="schedule" style="display: none">
         <div class="miniTextbox" id="scheduleTextbox">
           <p class="miniText" id="scheduletext1"><strong>Sort the events on the dropped schedule</strong></p>
-          <p class="miniText" id="scheduletext2">Drag the coloured boxes to rearrange them in the proper time then hit "Check schedule order" to confirm the order</p>
+          <p class="miniText" id="scheduletext2">Drag the boxes to rearrange them in the proper order based on the hint below, then hit "Check schedule order" to confirm the order</p>
+          <p class="miniText" id="scheduletext3">"With Mr. Haper its always family first, meetings last and he also has a nasty habit of sending papers early, but making the pickup time late."</p>
           <button class="miniButton" id="scheduleButton" onclick='changeScene("office")' style="display: none">Return to room</button>
         </div>
         <div class="schedulePage">
           <h2>Schedule for April 28th, Nicolas Harper</h2>
           <div id="sortEvents">
-            <li class="event active" id="1">Item 1</li>
-            <li class="event active" id="2">Item 2</li>
-            <li class="event active" id="3">Item 3</li>
-            <li class="event active" id="4">Item 4</li>
-            <li class="event active" id="5">Item 5</li>
-            <li class="event active" id="6">Item 6</li>
+            <li class="event active" id="1">Send papers to be signed and picked up later</li>
+            <li class="event active" id="2">Go through payment details with Danielle</li>
+            <li class="event active" id="3">Board meeting about security breach</li>
+            <li class="event active" id="4">Shane dropping by, probably before work starts at 8am</li>
+            <li class="event active" id="5">Find out details of security breach before meeting</li>
+            <li class="event active" id="6">Caroline retrieves papers for 8pm</li>
           </div>
           <button class="scheduleCheck" onclick="checkOrder()">Check schedule order</button>
         </div>
@@ -205,7 +217,7 @@
           <div class="obj">
             <img src="css/images/shane.png"
             alt="Shane Harper"
-            width="250" height="500"
+            width="219" height="500"
             id="shane">
           </div>
         </div>
@@ -215,7 +227,7 @@
         <section class="image">
           <img src="css/images/shanehalf.png"
           alt="Assistant image"
-          width="564" height:"650">
+          width="441" height:"550">
         </section>
         <section class="textbox">
           <p class="charText" id="shaneText"><strong>"Hey, you the detective or something?"</strong></p>
@@ -316,7 +328,7 @@
           <div class="obj">
             <img src="css/images/danielle.png"
             alt="Danielle Harper"
-            width="286" height="600"
+            width="189" height="525"
             id="danielle">
           </div>
           <div class="obj">
@@ -331,7 +343,7 @@
         <section class="image">
           <img src="css/images/daniellehalf.png"
           alt="Assistant image"
-          width="564" height:"650">
+          width="441" height:"550">
         </section>
         <section class="textbox">
           <p class="charText" id="danielleText"><strong>"Oh, Hello. You must be the detective on the case"</strong></p>
@@ -342,11 +354,12 @@
           </section>
         </section>
       </div>
+      <!--- Phone game -->
       <div class="phone" style="display: none">
         <div class="miniTextbox">
-          <p class="miniText" id="treasuretext1"><strong>Hover over the phone to find out the code through fingerprints</strong></p>
-          <p class="miniText" id="treasuretext2">Hint: The fingerprints will be different opacity to show how old they are</p>
-          <button class="miniButton" id="treasureButton" style="display: none" onclick='changeScene("bedroom")'>Return to room</button>
+          <p class="miniText" id="phonetext1"><strong>Hover over the phone to find out the code through fingerprints</strong></p>
+          <p class="miniText" id="phonetext2">Hint: The fingerprints will be different opacity to show how old they are</p>
+          <button class="miniButton" id="phoneButton" style="display: none" onclick='changeScene("bedroom")'>Return to room</button>
         </div>
         <div class="locked">
           <div class="column">
@@ -391,14 +404,307 @@
             id="textsS" class="icon"
             style="display: none">
           </div>
-          <div class="float">
-            <button class="miniButton" id="phoneButton" style="display: none" onclick='changeScene("bedroom")'>Return to room</button>
+        </div>
+      </div>
+    </div>
+    <!--- Final phase of the game -->
+    <div class="guessPhase" style="display: none">
+      <div class="endBox">
+        <div class="endTut">
+          <p class="endTitle"><strong>Time to string togther the story</strong></p>
+          <p class="endText">We will now be going through the night of the murder.<br>
+            In the end you will make a final decision on a murder weapon and a culprit</p>
+          <button class="endButton" onclick="changeEndScene('caroline')">Go to alibis</button>
+        </div>
+        <div class="cStory" style="display: none">
+          <img src="css/images/caroline.png"
+          alt="Caroline art"
+          width="300" height="750"
+          id="carolineEnd">
+          <div class="textRow">
+            <p class="endTitle"><strong>Let's start with Caroline's Story,</strong></p>
+            <form class="alibis" action="#" method="post">
+              <fieldset>
+                <label for="alibiList1" id="storyText">1. Where was Caroline on the night of the murder:</label><br>
+                <select class="alibiList1" name="carolineAlibi">
+                  <option>- Select an option -</option>
+                  <option>She was out getting documents</option>
+                  <option>She was at the house with the victim</option>
+                  <option>She was at home after a long day of work</option>
+                </select>
+                <br>
+                <label for="alibiList2" id="storyText">2. When did she find out about the murder:</label><br>
+                <select class="alibiList2" name="carolineAlibi">
+                  <option>- Select an option -</option>
+                  <option>In the morning, when she came in for work</option>
+                  <option>When she returned late from getting the papers</option>
+                  <option>She heard from Danielle the night of the murder</option>
+                  <option>When she returned on time from getting the papers</option>
+                </select>
+                <br>
+                <label for="motive" id="storyText">3. What is Carolines potential motive for murder:</label><br>
+                <select class="motive" name="carolineMotive">
+                  <option>- Select an option -</option>
+                  <option>She was jealous of the victims treasure collection</option>
+                  <option>She didn't want to work late for him anymore</option>
+                  <option>She wasn't properly paid for all of her work</option>
+                  <option>She was a paid to get rid of him</option>
+                </select>
+              </fieldset>
+            </form>
+            <button class="endButton" onclick="changeEndScene('shane')">Next</button>
           </div>
         </div>
+        <div class="sStory" style="display: none">
+          <img src="css/images/shane.png"
+          alt="Shane art"
+          width="328" height="750"
+          id="shaneEnd">
+          <div class="textRow">
+            <p class="endTitle"><strong>Next go through Shane's Story,</strong></p>
+            <form class="alibis" action="#" method="post">
+              <fieldset>
+                <label for="alibiList1" id="storyText">1. Where was Shane on the night of the murder:</label><br>
+                <select class="alibiList1" name="shaneAlibi">
+                  <option>- Select an option -</option>
+                  <option>He was just leaving the house after a meeting with the victim</option>
+                  <option>He was talking with Danielle</option>
+                  <option>He was out drinking</option>
+                </select>
+                <br>
+                <label for="alibiList2" id="storyText">2. When did he find out about the murder:</label><br>
+                <select class="alibiList2" name="shaneAlibi">
+                  <option>- Select an option -</option>
+                  <option>In the morning, when he came to see his brother</option>
+                  <option>When Danielle called him</option>
+                  <option>When Caroline called him</option>
+                  <option>When he stopped by late in the night</option>
+                </select>
+                <br>
+                <label for="motive" id="storyText">3. What is Shanes potential motive for murder:</label><br>
+                <select class="motive" name="shaneMotive">
+                  <option>- Select an option -</option>
+                  <option>He wanted danielle to himself</option>
+                  <option>He was tried of his brother mocking him</option>
+                  <option>He was jealous of the victims treasure collection</option>
+                  <option>He wanted his brothers money</option>
+                </select>
+              </fieldset>
+            </form>
+            <button class="endButton" onclick="changeEndScene('danielle')">Next</button>
+          </div>
+        </div>
+        <div class="dStory" style="display: none">
+          <img src="css/images/danielle.png"
+          alt="Danielle art"
+          width="282" height="750"
+          id="danielleEnd">
+          <div class="textRow">
+            <p class="endTitle"><strong>Finally go through Danielle's Story,</strong></p>
+            <form class="alibis" action="#" method="post">
+              <fieldset>
+                <label for="alibiList1" id="storyText">1. Where was Danielle on the night of the murder:</label><br>
+                <select class="alibiList1" name="danielleAlibi">
+                  <option>- Select an option -</option>
+                  <option>She was stress drinking in her room</option>
+                  <option>She was with the victim all night before going to bed</option>
+                  <option>She was in the living room watching her drama show</option>
+                </select>
+                <br>
+                <label for="alibiList2" id="storyText">2. When did she find out about the murder:</label><br>
+                <select class="alibiList2" name="danielleAlibi">
+                  <option>- Select an option -</option>
+                  <option>In the middle of the night, when the victim never came to bed</option>
+                  <option>When she came downstairs to investigate footsteps</option>
+                  <option>When Caroline called her</option>
+                  <option>When she heard a loud noise and ran downstairs</option>
+                </select>
+                <br>
+                <label for="motive" id="storyText">3. What is Danielle's potential motive for murder:</label><br>
+                <select class="motive" name="danielleMotive">
+                  <option>- Select an option -</option>
+                  <option>She needed all of the victims money for herself</option>
+                  <option>She needed moeny for her brother</option>
+                  <option>She wanted to be with Shane</option>
+                  <option>She wanted to divorce the victim</option>
+                </select>
+              </fieldset>
+            </form>
+            <button class="endButton" onclick="changeEndScene('events')">Next</button>
+          </div>
+        </div>
+        <div class="events" style="display: none">
+          <p class="endTitle"><strong>Before you decide, let go over the major events,</strong></p>
+          <div class="eventsDiv">
+            <div class="eventRow">
+              <p class="endText"><strong>The morning fight</strong></p>
+              <form class="alibis" action="#" method="post">
+                <fieldset>
+                  <label for="fight1" id="storyText">1. Who was fighting in the office the morning of the murder?</label><br>
+                  <select class="fight1" name="fightQ1">
+                    <option>- Select an option -</option>
+                    <option>Danielle and the victim</option>
+                    <option>The victim and Caroline</option>
+                    <option>Danielle and Shane</option>
+                  </select>
+                  <br>
+                  <label for="fight2" id="storyText">2. What were they fighting about:</label><br>
+                  <select class="fight2" name="fightQ2">
+                    <option>- Select an option -</option>
+                    <option>They were fighting over love</option>
+                    <option>They were fighting over the victim's treasure</option>
+                    <option>They were fighting over the victim's money</option>
+                    <option>One was kicking the other out</option>
+                  </select>
+                  <br>
+                  <label for="fight3" id="storyText">3. Who caught them fighting:</label><br>
+                  <select class="fight3" name="fightQ3">
+                    <option>- Select an option -</option>
+                    <option>Caroline</option>
+                    <option>Danielle</option>
+                    <option>The victim</option>
+                    <option>Shane</option>
+                  </select>
+                  <br>
+                  <label for="fight4" id="storyText">4. Who was listening in on the conversation?</label><br>
+                  <select class="fight4" name="fightQ4">
+                    <option>- Select an option -</option>
+                    <option>Caroline</option>
+                    <option>Danielle</option>
+                    <option>The victim</option>
+                    <option>Shane</option>
+                  </select>
+                </fieldset>
+              </form>
+            </div>
+            <div class="eventRow">
+              <p class="endText"><strong>The victims paranoia</strong></p>
+              <form class="alibis" action="#" method="post">
+                <fieldset>
+                  <label for="paranoia1" id="storyText">1. What did the victim's note reveal?</label><br>
+                  <select class="paranoia1" name="fightQ1">
+                    <option>- Select an option -</option>
+                    <option>He was hearing footsteps outside</option>
+                    <option>Who he owed moeny</option>
+                    <option>He was hearing footsteps everywhere</option>
+                  </select>
+                  <br>
+                  <label for="paranoia2" id="storyText">2. Was that all in his imagaination?</label><br>
+                  <select class="paranoia2" name="danielleAlibi">
+                    <option>- Select an option -</option>
+                    <option>Yes, he was a paraniod person</option>
+                    <option>No, but no one else was in the house</option>
+                    <option>No, Danielle confirmed it</option>
+                    <option>No, Caroline confirmed it</option>
+                  </select>
+                  <br>
+                  <label for="paranoia3" id="storyText">3. What did he do after?</label><br>
+                  <select class="paranoia3" name="danielleMotive">
+                    <option>- Select an option -</option>
+                    <option>He ran straight to the treasure room</option>
+                    <option>He ran up to see Danielle</option>
+                    <option>He gathered all his money and ran to the treasure room</option>
+                    <option>He called Caroline</option>
+                  </select>
+                  <br>
+                  <label for="paranoia4" id="storyText">4. Was the victim killed immediately?</label><br>
+                  <select class="paranoia4" name="danielleMotive">
+                    <option>- Select an option -</option>
+                    <option>Yes, the murderer was waiting for him</option>
+                    <option>No, the murderer walked in on him</option>
+                    <option>No, there was a fight over the treasures</option>
+                    <option>No, the murderer let him finish before killing him</option>
+                  </select>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <button class="endButton" onclick="changeEndScene('final')">Next</button>
+        </div>
+        <div class="finalChoice" style="display: none">
+          <p class="endTitle"><strong>Make your final decision!</strong></p>
+          <div class="eventsDiv">
+            <div class="eventRow">
+              <p class="endTitle" style="text-align: center"><strong>The Murderer</strong></p>
+              <img src="css/images/blank.png"
+              alt="blank square"
+              id="finalSuspect">
+              <br>
+              <img src="css/images/carolineSuspect.png"
+              alt="caroline"
+              id="carolineF"
+              style="cursor: pointer">
+              <img src="css/images/shaneSuspect.png"
+              alt="shane"
+              id="shaneF"
+              style="cursor: pointer">
+              <img src="css/images/danielleSuspect.png"
+              alt="danielle"
+              id="danielleF"
+              style="cursor: pointer">
+            </div>
+            <div class="eventRow">
+              <p class="endTitle" style="text-align: center"><strong>The Murder Weapon</strong></p>
+              <img src="css/images/blank.png"
+              alt="blank square"
+              id="finalWeapon">
+              <br>
+              <img src="css/images/knucklesWeapon.png"
+              alt="gold knuckles"
+              id="knucklesF"
+              style="cursor: pointer">
+              <img src="css/images/glassWeapon.png"
+              alt="shards of glass"
+              id="glassF"
+              style="cursor: pointer">
+            </div>
+          </div>
+          <button class="endButton" onclick="finalCutscene()">Confirm</button>
+        </div>
+      </div>
+    </div>
+    <div class="cutscene" style="display: none">
+      <div class="interview">
+        <section class="image">
+          <img src="css/images/daniellehalf.png"
+          alt="Assistant image"
+          width="441" height:"550"
+          id="cutsceneImg">
+        </section>
+        <section class="textbox">
+          <p class="endTitle" id="cutsceneName">Name</p>
+          <p class="endText" id="cutsceneText">Text</pn>
+        </section>
+      </div>
+    </div>
+    <div class="ending" style="display: none">
+      <div class="endBox">
+        <section id="win" style="display: none">
+          <p class="endTitle"><strong>You caught the culprit!</strong></p>
+          <p class="endText">Caroline killed her boss after he pushed her to her limits for the last time.<br>
+          Her plan was to frame Shane by tampering with the victim's note and stealing his treasure collection but not the money.<br>
+          That way Danielle, who she felt bad for, would sitll have funds for herself.
+          She was able to sneak up on the victim because she had a key to the back, but the victim over powered her so she was forced to fight.<br>
+          She ended up using the glass shard to kill him instead of the gold knuckles as she plan, because he knocked it out of her hands.<br>
+          </p>
+        </section>
+        <section id="neutral" style="display: none">
+          <p class="endTitle"><strong>You caught the culprit but something is wrong...</strong></p>
+          <p class="endText">It's true that Caroline killed her boss after he pushed her to her limits for the last time.<br>
+          Her plan was to frame Shane by tampering with the victim's note and stealing his treasure collection but not the money.<br>
+          That way Danielle, who she felt bad for, would sitll have funds for herself.
+          She was able to sneak up on the victim because she had a key to the back, but the victim over powered her so she was forced to fight.<br>
+          But she didn't use the gold knuckles as you thought. She ended up using the glass shard to kill him because he knocked the knuckles out of her hands.<br>
+          </p>
+        </section>
+        <section id="lose" style="display: none">
+          <p class="endTitle"><strong>I think you caught the wrong person...</strong></p>
+          <button class="endButton" onclick="showEnd()">Reveal the answer</button>
+          <p class="endText" id="trueEnd">Or you can try again by refreshing the page!</p>
+        </section>
       </div>
     </div>
     <!-- My script(s) -->
     <script src="js/script.js"></script>
   </body>
-
 </html>
