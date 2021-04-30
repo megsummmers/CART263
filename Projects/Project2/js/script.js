@@ -23,13 +23,13 @@ let scheduleScore = 6;
 let notepadStatus = "open";
 let fingerprintCode = 0;
 //final checklist
-let shaneInt = true;
-let danielleInt = true;
-let carolineInt = true;
-let scheduleGame = true;
-let noteGame = true;
-let treasureGame = true;
-let phoneGame = true;
+let shaneInt = false;
+let danielleInt = false;
+let carolineInt = false;
+let scheduleGame = false;
+let noteGame = false;
+let treasureGame = false;
+let phoneGame = false;
 let finalSuspect;
 let finalWeapon;
 
